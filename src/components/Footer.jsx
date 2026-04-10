@@ -1,0 +1,83 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import logoUrl from '../assets/waalai_logo.png';
+
+const Footer = () => {
+  return (
+    <footer style={{
+      backgroundColor: 'var(--color-dark-green)',
+      color: 'white',
+      padding: '80px 0 20px 0',
+      marginTop: '0'
+    }}>
+      <div className="container" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '40px',
+        marginBottom: '60px'
+      }}>
+        {/* Brand Section */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <img src={logoUrl} alt="Waalai Mess Logo" style={{ height: '70px', objectFit: 'contain', alignSelf: 'flex-start' }} />
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1rem', lineHeight: '1.6' }}>
+            Rooted in the ancient Tamil wisdom of "Unave Marundhu", we serve authentic, 100% natural, and organic food on traditional banana leaves.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <h4 style={{ color: 'var(--color-gold-accent)', fontSize: '1.25rem', fontWeight: 700 }}>Quick Links</h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <Link to="/" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Home</Link>
+            <Link to="/about" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>About Us</Link>
+            <Link to="/order" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Online Order</Link>
+            <Link to="/booking" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Table Booking</Link>
+            <Link to="/catering" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Catering Services</Link>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <h4 style={{ color: 'var(--color-gold-accent)', fontSize: '1.25rem', fontWeight: 700 }}>Contact Details</h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+              <MapPin size={20} color="var(--color-banana-leaf)" />
+              <div>
+                <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>Anna Nagar (Near Ambiga Cinemas), Madurai.</p>
+                <p style={{ color: 'rgba(255,255,255,0.8)', margin: '8px 0 0 0' }}>KK Nagar Area, Madurai.</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <Phone size={20} color="var(--color-banana-leaf)" />
+              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>084898 22822</p>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <Mail size={20} color="var(--color-banana-leaf)" />
+              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>contact@waalai.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Credit Section */}
+      <div style={{
+        borderTop: '1px solid rgba(255,255,255,0.1)',
+        paddingTop: '20px',
+        textAlign: 'center',
+        paddingBottom: '20px'
+      }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)' }}>
+            © 2026 Waalai Mess & Caterers. All Rights Reserved.
+          </p>
+          <p style={{ margin: 0, fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)', letterSpacing: '0.05em' }}>
+            Proudly Developed & Designed by <a href="#" style={{ color: 'var(--color-gold-accent)', textDecoration: 'none', fontWeight: 800, borderBottom: '2px solid var(--color-gold-accent)', paddingBottom: '2px' }}>Jodtech Company</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
