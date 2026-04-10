@@ -1,16 +1,34 @@
-# React + Vite
+# Waalai Mess - Authentic Organic Dining
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Waalai Mess is a premium South Indian dining experience focused on organic, preservative-free food served traditionally on banana leaves (Waalai Elai).
 
-Currently, two official plugins are available:
+## Features
+- **Organic Menu**: Freshly prepared dishes without artificial colors or preservatives.
+- **Table Booking**: Easy table reservations with pre-order options.
+- **Online Ordering**: Direct-to-door delivery with live distance-based calculations.
+- **WhatsApp Integration**: Seamless ordering and booking via WhatsApp.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Frontend**: React 19, Vite 6
+- **Styling**: Vanilla CSS (Custom Design System)
+- **Animations**: GSAP
+- **Icons**: Lucide React
 
-## React Compiler
+## Local Development
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run dev server: `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deployment (Vercel)
+This project is configured for easy deployment on **Vercel**.
 
-## Expanding the ESLint configuration
+1. Push your changes to GitHub.
+2. Connect your GitHub repository to Vercel.
+3. Vercel will automatically detect the Vite configuration.
+4. Deployment settings:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Click **Deploy**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The `vercel.json` included handles SPA routing automatically.
