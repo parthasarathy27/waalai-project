@@ -107,15 +107,7 @@ const Home = () => {
     <div style={{ overflowX: 'hidden' }}>
       
       {/* SECTION 1: DYAMIC SPLIT-HERO SLIDER */}
-      <section ref={heroRef} style={{
-        position: 'relative',
-        height: '95vh',
-        backgroundColor: 'var(--color-dark-green)',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        paddingTop: '100px' // Space for the floating navbar
-      }}>
+      <section ref={heroRef} className="hero-section">
         {/* BACKGROUND LAYER (SHADED) */}
         {slides.map((slide, idx) => (
           <div key={idx} style={{
@@ -137,12 +129,7 @@ const Home = () => {
 
         {/* CONTENT LAYER */}
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '60px',
-            alignItems: 'center'
-          }}>
+          <div className="hero-grid">
             {/* Left Column (Text) */}
             <div>
               <span className="slide-fade-in" style={{ 
@@ -177,7 +164,7 @@ const Home = () => {
             </div>
 
             {/* Right Column (Featured Image) - UNIFIED ATTRACTIVE BOX DESIGN */}
-            <div className="slide-img-in" style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '500px', height: '500px' }}>
+            <div className="hero-image-box slide-img-in" style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '500px', height: '500px' }}>
               {/* Decorative Floating Frame */}
               <div style={{
                 position: 'absolute', top: '20px', right: '-20px', bottom: '-20px', left: '20px',
@@ -212,18 +199,18 @@ const Home = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px' }}>
-            <div className="glass" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-primary-green)', backgroundColor: 'var(--color-warm-sand)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            <div className="glass mobile-small-padding" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-primary-green)', backgroundColor: 'var(--color-warm-sand)' }}>
               <Leaf size={48} color="var(--color-primary-green)" style={{ margin: '0 auto 24px' }} />
               <h3 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>100% Natural</h3>
               <p style={{ color: 'var(--color-earth-brown)' }}>Sourced from local farms. Zero preservatives, Zero MSG, and Absolutely no hidden flavor enhancers.</p>
             </div>
-            <div className="glass" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-gold-accent)', backgroundColor: 'var(--color-warm-sand)' }}>
+            <div className="glass mobile-small-padding" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-gold-accent)', backgroundColor: 'var(--color-warm-sand)' }}>
               <Sparkles size={48} color="var(--color-gold-accent)" style={{ margin: '0 auto 24px' }} />
               <h3 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>No Artificial Colors</h3>
               <p style={{ color: 'var(--color-earth-brown)' }}>Our vibrant colors come strictly from pure turmeric and authentic sun-dried chillies.</p>
             </div>
-            <div className="glass" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-secondary-green)', backgroundColor: 'var(--color-warm-sand)' }}>
+            <div className="glass mobile-small-padding" style={{ padding: '40px 24px', textAlign: 'center', borderRadius: '24px', borderTop: '4px solid var(--color-secondary-green)', backgroundColor: 'var(--color-warm-sand)' }}>
               <HeartPulse size={48} color="var(--color-secondary-green)" style={{ margin: '0 auto 24px' }} />
               <h3 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Traditional Care</h3>
               <p style={{ color: 'var(--color-earth-brown)' }}>Slow-cooked in traditional vessels to ensure every bite provides true nourishment for your body.</p>
@@ -298,7 +285,7 @@ const Home = () => {
               { name: "Priya Lakshmi", review: "We booked them for our wedding. The banana leaf meals were incredibly authentic and the guests praised the natural taste endlessly!", role: "Event Client" },
               { name: "Sundar M.", review: "The 1KG chicken bucket is phenomenal. You can actually taste the raw natural spices and not just artificial heat. True Madurai flavor!", role: "Chef & Food Blogger" }
             ].map((t, i) => (
-              <div key={i} style={{ backgroundColor: 'white', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', position: 'relative', borderBottom: '5px solid var(--color-gold-accent)' }}>
+              <div key={i} className="mobile-small-padding" style={{ backgroundColor: 'white', padding: '40px', borderRadius: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', position: 'relative', borderBottom: '5px solid var(--color-gold-accent)' }}>
                 <Quote size={50} color="var(--color-primary-green)" style={{ opacity: 0.1, position: 'absolute', top: '20px', right: '20px' }} />
                 <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
                     {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--color-gold-accent)" color="var(--color-gold-accent)" />)}
@@ -343,7 +330,7 @@ const Home = () => {
             </div>
 
             {/* Catering */}
-            <div style={{ backgroundColor: 'var(--color-dark-green)', padding: '50px', borderRadius: '30px', color: 'white', position: 'relative', overflow: 'hidden' }}>
+            <div className="mobile-small-padding" style={{ backgroundColor: 'var(--color-dark-green)', padding: '50px', borderRadius: '30px', color: 'white', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}><ChefHat size={200} /></div>
               <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Planning an Event?</h3>
               <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: 0.9, lineHeight: 1.6 }}>

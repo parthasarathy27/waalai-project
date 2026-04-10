@@ -187,16 +187,62 @@ p {
 
 @media (max-width: 768px) {
   .page-padding {
-    padding-top: 90px !important;
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
   }
   .section-padding {
-    padding: 60px 0 !important;
+    padding: 40px 0 !important;
   }
   .hero-slide-title {
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
   }
   .quote-banner-container {
-    margin-top: 60px !important;
-    padding: 60px 20px !important;
+    margin-top: 40px !important;
+    padding: 40px 20px !important;
+  }
+  
+  /* Additional tight mobile utilities */
+  .mobile-tight-gap {
+    gap: 24px !important;
+  }
+  .mobile-no-padding {
+    padding: 0 !important;
+  }
+  .mobile-small-padding {
+    padding: 24px 16px !important;
+  }
+}
+
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  background-color: var(--color-dark-green);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    padding-top: 85px;
+    padding-bottom: 40px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .hero-image-box {
+    max-width: 100% !important;
+    height: 350px !important;
   }
 }
