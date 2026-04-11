@@ -215,12 +215,13 @@ p {
 
 .hero-section {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
   background-color: var(--color-dark-green);
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 150px; /* nav(100px) + 50px gap */
+  padding-bottom: 50px;
 }
 
 .hero-grid {
