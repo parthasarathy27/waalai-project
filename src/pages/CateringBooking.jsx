@@ -78,6 +78,17 @@ const CateringBooking = () => {
           <p style={{ color: 'var(--color-secondary-green)', maxWidth: '650px', margin: '0 auto', fontSize: '1rem' }}>
             Hosting a major event? Do not sacrifice health for scale. We cater for thousands of guests while maintaining our strict adherence to traditional cooking methods and 100% natural ingredients, served flawlessly on real Banana Leaves.
           </p>
+          <div style={{
+            marginTop: '20px',
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            backgroundColor: 'rgba(255,193,7,0.12)', border: '1.5px solid rgba(255,193,7,0.5)',
+            borderRadius: '12px', padding: '12px 20px', maxWidth: '650px'
+          }}>
+            <span style={{ fontSize: '1.3rem' }}>📅</span>
+            <p style={{ margin: 0, fontSize: '0.95rem', color: '#7a5c00', fontWeight: 600, textAlign: 'left' }}>
+              <strong>Advance Booking Required:</strong> All catering orders must be placed at least <strong>1 day before</strong> the event date for proper preparation and delivery arrangements.
+            </p>
+          </div>
         </div>
 
         <form onSubmit={handleBooking} style={{ 

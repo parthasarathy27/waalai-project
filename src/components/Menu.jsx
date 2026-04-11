@@ -6,13 +6,15 @@ import { Plus } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Menu = ({ onAddToCart }) => {
+const Menu = ({ onAddToCart, typeFilter }) => {
   const [activeCategory, setActiveCategory] = useState("All");
   const menuRef = useRef(null);
   
-  const filteredProducts = activeCategory === "All" 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
+  const filteredProducts = products.filter(p => {
+    const categoryMatch = activeCategory === "All" || p.category === activeCategory;
+    const typeMatch = !typeFilter || (typeFilter === 'veg' ? p.isVeg : !p.isVeg);
+    return categoryMatch && typeMatch;
+  });
 
   useEffect(() => {
     // Re-run animation when category changes
@@ -40,8 +42,14 @@ const Menu = ({ onAddToCart }) => {
     <section id="menu-section" ref={menuRef} style={{ padding: '80px 0', backgroundColor: 'var(--color-bg-light)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ color: 'var(--color-dark-green)', marginBottom: '16px', fontSize: '2.5rem' }}>Authentic Menu</h2>
-          <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-earth-brown)' }}>Explore our authentically prepared traditional and contemporary recipes.</p>
+          <h2 style={{ color: 'var(--color-dark-green)', marginBottom: '16px', fontSize: '2.5rem' }}>
+            {typeFilter === 'veg' ? 'Pure Organic Veg Menu' : typeFilter === 'nonveg' ? 'Traditional Non-Veg Menu' : 'Authentic Menu'}
+          </h2>
+          <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-earth-brown)' }}>
+            {typeFilter 
+              ? `Exploring our ${typeFilter === 'veg' ? 'vibrant vegetarian' : 'authentic non-vegetarian'} selection. Free from artificial colors and preservatives.` 
+              : 'Explore our authentically prepared traditional and contemporary recipes.'}
+          </p>
         </div>
 
         {/* Category Filter */}

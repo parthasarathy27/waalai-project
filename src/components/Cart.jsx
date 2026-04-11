@@ -283,6 +283,9 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                       Calculated automatically from your selected map location.
                     </p>
                   </div>
+                  <p style={{ fontSize: '0.85rem', color: '#856404', backgroundColor: 'rgba(255,193,7,0.1)', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,193,7,0.3)', margin: 0 }}>
+                    🕐 <strong>Note:</strong> Please place your delivery order at least <strong>45 minutes before</strong> your expected delivery time for fresh preparation.
+                  </p>
                 </>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

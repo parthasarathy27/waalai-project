@@ -24,22 +24,32 @@ const slides = [
     titlePrimary: "Taste the",
     titleHighlight: "Chettinad Legacy",
     description: "Immerse yourself in heritage with our naturally prepared Non-Veg delicacies, slow-cooked for hours.",
-    actionText: "Order Biryani",
-    actionLink: "/order"
+    actionText: "Order Non-Veg",
+    actionLink: "/order?type=nonveg"
   },
   {
-    bgImage: "https://unsplash.com/photos/bunch-of-vegetables-D6Tu_L3chLEhttps://unsplash.com/photos/bunch-of-vegetables-D6Tu_L3chLE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+    bgImage: "https://images.unsplash.com/photo-1626200163351-468200163351?q=80&w=1920&auto=format&fit=crop",
     featuredImage: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800&auto=format&fit=crop",
     subtitle: "Purity of Nature",
     titlePrimary: "Feel the",
     titleHighlight: "Organic Essence",
     description: "Pure, wholesome vegetarian meals served traditionally. No artificial colors, just nature's goodness.",
-    actionText: "See Veg Menu",
-    actionLink: "/order"
+    actionText: "Order Veg Meals",
+    actionLink: "/order?type=veg"
   },
   {
     bgImage: "https://images.unsplash.com/photo-1555243629-3eba2f7b0f57?q=80&w=1920&auto=format&fit=crop",
     featuredImage: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop",
+    subtitle: "Book your Seat",
+    titlePrimary: "Reserve your",
+    titleHighlight: "Authentic Table",
+    description: "Avoid the wait. Pre-book your table at our Madurai branches and enjoy a seamless dining experience.",
+    actionText: "Book a Table",
+    actionLink: "/booking"
+  },
+  {
+    bgImage: "https://images.unsplash.com/photo-1555243629-3eba2f7b0f57?q=80&w=1920&auto=format&fit=crop",
+    featuredImage: "https://images.unsplash.com/photo-1555243629-3eba2f7b0f57?q=80&w=800&auto=format&fit=crop",
     subtitle: "Grandiose Catering",
     titlePrimary: "Expertly",
     titleHighlight: "Curated Events",
@@ -145,16 +155,17 @@ const Home = () => {
               <p className="slide-fade-in" style={{ fontSize: '1.3rem', color: 'var(--color-warm-sand)', marginBottom: '40px', lineHeight: 1.6, opacity: 0.9 }}>
                 {slides[currentSlide].description}
               </p>
-              <div className="slide-fade-in" style={{ display: 'flex', gap: '20px' }}>
+              <div className="slide-fade-in" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '30px', alignItems: 'center' }}>
                 <button className="btn btn-primary" onClick={() => navigate(slides[currentSlide].actionLink)} style={{ padding: '18px 45px', fontSize: '1.1rem' }}>
                   {slides[currentSlide].actionText}
                 </button>
-                {/* Dots Navigation */}
-                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginLeft: '20px' }}>
+                
+                {/* Dots Navigation - Integrated next to the single button for balance */}
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginLeft: '10px' }}>
                   {slides.map((_, i) => (
                     <button key={i} onClick={() => setCurrentSlide(i)} style={{
-                      width: i === currentSlide ? '30px' : '10px',
-                      height: '10px', borderRadius: '5px', border: 'none',
+                      width: i === currentSlide ? '25px' : '8px',
+                      height: '8px', borderRadius: '50px', border: 'none',
                       backgroundColor: i === currentSlide ? 'var(--color-gold-accent)' : 'rgba(255,255,255,0.3)',
                       transition: 'all 0.3s ease', cursor: 'pointer'
                     }} />
@@ -332,8 +343,8 @@ const Home = () => {
             {/* Catering */}
             <div className="mobile-small-padding" style={{ backgroundColor: 'var(--color-dark-green)', padding: '50px', borderRadius: '30px', color: 'white', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}><ChefHat size={200} /></div>
-              <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Planning an Event?</h3>
-              <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: 0.9, lineHeight: 1.6 }}>
+              <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'white' }}>Planning an Event?</h3>
+              <p style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'white', fontWeight: 500, lineHeight: 1.6 }}>
                 Experience our professional 5-star catering service. We bring the authentic Waalai taste to your weddings, corporate meetings, and family gatherings.
               </p>
               <button 

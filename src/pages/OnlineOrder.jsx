@@ -37,7 +37,7 @@ const OnlineOrder = ({ onAddToCart }) => {
           </p>
         </div>
       </div>
-      <Menu onAddToCart={onAddToCart} />
+      <Menu onAddToCart={onAddToCart} typeFilter={searchParams.get('type')} />
     </div>
   );
 };
