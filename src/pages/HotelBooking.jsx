@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
+import SuccessOverlay from '../components/SuccessOverlay';
 
 const HotelBooking = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const HotelBooking = () => {
     preOrderItems: ''
   });
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const WHATSAPP_NUMBER = "918489822822"; 
 
@@ -46,6 +48,22 @@ const HotelBooking = () => {
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
       setIsProcessing(false);
+      setShowSuccess(true);
+      
+      // Clear data immediately
+      setFormData({
+        name: '',
+        guests: '',
+        date: '',
+        time: '',
+        specialRequest: '',
+        preOrderItems: ''
+      });
+      
+      // Auto-refresh after 4 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 4000);
     }, 500);
   };
 
@@ -128,7 +146,16 @@ const HotelBooking = () => {
           </button>
         </form>
       </div>
-
+      
+      <SuccessOverlay 
+        isOpen={showSuccess} 
+        onClose={() => {
+          setShowSuccess(false);
+          window.location.reload();
+        }} 
+        title="Booking Sent!" 
+        message="Your table reservation request has been sent! We will check availability and confirm your spot via WhatsApp shortly."
+      />
     </div>
   );
 };

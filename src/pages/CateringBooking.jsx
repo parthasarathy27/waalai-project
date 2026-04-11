@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
+import SuccessOverlay from '../components/SuccessOverlay';
 
 const CateringBooking = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const CateringBooking = () => {
     requirements: ''
   });
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const WHATSAPP_NUMBER = "918489822822";
 
@@ -42,6 +44,22 @@ const CateringBooking = () => {
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
       setIsProcessing(false);
+      setShowSuccess(true);
+      
+      // Clear data immediately
+      setFormData({
+        name: '',
+        eventType: 'Wedding',
+        guests: '',
+        date: '',
+        location: '',
+        requirements: ''
+      });
+      
+      // Auto-refresh after 4 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 4000);
     }, 500);
   };
 
@@ -107,7 +125,16 @@ const CateringBooking = () => {
           </button>
         </form>
       </div>
-
+      
+      <SuccessOverlay 
+        isOpen={showSuccess} 
+        onClose={() => {
+          setShowSuccess(false);
+          window.location.reload();
+        }} 
+        title="Inquiry Sent!" 
+        message="Thank you for choosing Waalai Mess for your grand event. We've received your inquiry and our event experts will contact you via WhatsApp soon."
+      />
     </div>
   );
 };

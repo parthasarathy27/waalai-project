@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Loader2 } from 'lucide-react';
+import SuccessOverlay from './SuccessOverlay';
 
-const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem }) => {
+const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, onClearCart }) => {
   const [customerName, setCustomerName] = useState('');
   const [address, setAddress] = useState('');
   const [distance, setDistance] = useState(1);
@@ -10,6 +11,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem }
   const [bookingTime, setBookingTime] = useState('');
   const [guests, setGuests] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   
   // User provided phone
   const DELIVERY_RATE_PER_KM = 10;
@@ -79,7 +81,29 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem }
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
       setIsProcessing(false);
+      setShowSuccess(true);
+      
+      // Clear data immediately so it's not visible behind success
+      onClearCart();
+      setCustomerName('');
+      setAddress('');
+      setDistance(1);
+      setBookingDate('');
+      setBookingTime('');
+      setGuests('');
+      
+      // Auto-refresh after 4 seconds
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 4000);
     }, 500);
+  };
+
+  const handleCloseAll = () => {
+    setShowSuccess(false);
+    onClose();
+    // Refresh to clear state and reset the experience
+    window.location.href = '/'; 
   };
 
   if (!isOpen) return null;
@@ -285,6 +309,15 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem }
           </div>
         )}
       </div>
+
+      <SuccessOverlay 
+        isOpen={showSuccess} 
+        onClose={handleCloseAll} 
+        title={orderType === 'delivery' ? "Order Placed!" : "Booking Request Sent!"}
+        message={orderType === 'delivery' 
+          ? "Your healthy Waalai meal is being prepared with care. Check WhatsApp for confirmation!"
+          : "We have received your table booking request. We will confirm your reservation shortly via WhatsApp."}
+      />
     </>
   );
 };

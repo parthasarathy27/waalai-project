@@ -41,6 +41,10 @@ function App() {
     setCartItems(prev => prev.filter(item => item.id !== id));
   };
 
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -70,6 +74,7 @@ function App() {
           cartItems={cartItems}
           onUpdateCartItem={handleUpdateCartItem}
           onRemoveCartItem={handleRemoveCartItem}
+          onClearCart={handleClearCart}
         />
       </div>
     </BrowserRouter>
