@@ -43,15 +43,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} style={{
+    <section ref={heroRef} className="hero-section-responsive" style={{
       position: 'relative',
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
-      paddingTop: '100px', // clearing the fixed navbar
-      paddingBottom: '40px'
+      paddingTop: '150px', // balanced: nav(100px) + 50px gap
+      paddingBottom: '50px'
     }}>
       {/* Background Image */}
       <div className="hero-bg" style={{
@@ -99,6 +99,10 @@ const Hero = () => {
 
       <style>{`
         @media (max-width: 768px) {
+          .hero-section-responsive {
+            padding-top: 130px !important; // nav(~90px) + 40px gap
+            padding-bottom: 40px !important;
+          }
           .hero-responsive-title {
             font-size: 2.2rem !important;
             margin-bottom: 16px !important;

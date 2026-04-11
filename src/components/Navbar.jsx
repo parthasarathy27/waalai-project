@@ -35,7 +35,7 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
       }}>
         {/* Real Logo integration */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img src={logoUrl} alt="Waalai Mess & Caterers" style={{ height: '65px', objectFit: 'contain' }} />
+          <img src={logoUrl} alt="Waalai Mess & Caterers" className="logo-img" style={{ height: '60px', objectFit: 'contain', transition: 'height 0.3s ease' }} />
         </Link>
 
         {/* Desktop Links */}
@@ -145,13 +145,14 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
         </div>
       )}
 
-      {/* Internal CSS for Mobile Visibility */}
+      {/* Internal CSS for Mobile Visibility & Logo Size */}
       <style>{`
         @media (min-width: 768px) {
           .desktop-menu { display: flex !important; }
         }
         @media (max-width: 767px) {
           .mobile-btn { display: block !important; }
+          .logo-img { height: 45px !important; }
         }
       `}</style>
     </nav>
