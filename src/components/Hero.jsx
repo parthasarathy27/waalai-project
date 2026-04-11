@@ -45,12 +45,13 @@ const Hero = () => {
   return (
     <section ref={heroRef} style={{
       position: 'relative',
-      height: '100vh',
+      minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
-      marginTop: '80px' // offset navbar
+      paddingTop: '100px', // clearing the fixed navbar
+      paddingBottom: '40px'
     }}>
       {/* Background Image */}
       <div className="hero-bg" style={{
@@ -66,23 +67,52 @@ const Hero = () => {
       }} />
 
       <div ref={textRef} className="container" style={{ textAlign: 'center', color: 'white', zIndex: 1 }}>
-        <h1 className="hero-title" style={{ color: 'white', marginBottom: '24px', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+        <h1 className="hero-title hero-responsive-title" style={{ 
+          color: 'white', 
+          marginBottom: '24px', 
+          textShadow: '0 4px 20px rgba(0,0,0,0.5)',
+          lineHeight: 1.1
+        }}>
           Authentic Taste of <br/>
           <span style={{ color: 'var(--color-primary-green)' }}>Waalai</span> Mess
         </h1>
-        <p className="hero-subtitle" style={{ color: '#f8fafc', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 40px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+        <p className="hero-subtitle hero-responsive-subtitle" style={{ 
+          color: '#f8fafc', 
+          fontSize: '1.25rem', 
+          maxWidth: '600px', 
+          margin: '0 auto 40px', 
+          textShadow: '0 2px 10px rgba(0,0,0,0.5)' 
+        }}>
           Experience the finest Veg & Non-Veg catering services. From our signature biryanis to authentic 1KG buckets, delivered fresh to your door.
         </p>
         <button 
           className="btn btn-primary hero-btn" 
           style={{ padding: '16px 40px', fontSize: '1.2rem' }}
           onClick={() => {
-            document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
+            const menuSection = document.getElementById('menu-section');
+            if (menuSection) menuSection.scrollIntoView({ behavior: 'smooth' });
           }}
         >
           Explore Menu
         </button>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-responsive-title {
+            font-size: 2.2rem !important;
+            margin-bottom: 16px !important;
+          }
+          .hero-responsive-subtitle {
+            font-size: 1rem !important;
+            margin-bottom: 30px !important;
+          }
+          .hero-btn {
+            padding: 12px 32px !important;
+            font-size: 1rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

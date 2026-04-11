@@ -177,39 +177,39 @@ p {
 
 /* Responsive Utilities */
 .page-padding {
-  padding-top: 110px;
+  padding-top: 120px;
   padding-bottom: 80px;
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 @media (max-width: 768px) {
   .page-padding {
-    padding-top: 80px !important;
+    padding-top: 100px !important;
     padding-bottom: 40px !important;
   }
   .section-padding {
-    padding: 40px 0 !important;
+    padding: 60px 0 !important;
   }
   .hero-slide-title {
-    font-size: 2.2rem !important;
+    font-size: 2rem !important;
   }
   .quote-banner-container {
-    margin-top: 40px !important;
-    padding: 40px 20px !important;
+    margin-top: 30px !important;
+    padding: 30px 15px !important;
   }
   
   /* Additional tight mobile utilities */
   .mobile-tight-gap {
-    gap: 24px !important;
+    gap: 16px !important;
   }
   .mobile-no-padding {
     padding: 0 !important;
   }
   .mobile-small-padding {
-    padding: 24px 16px !important;
+    padding: 20px 15px !important;
   }
 }
 

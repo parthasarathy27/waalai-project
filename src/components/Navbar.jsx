@@ -18,15 +18,15 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
   return (
     <nav className="glass" style={{
       position: 'fixed',
-      top: '15px',
-      left: '15px',
-      right: '15px',
-      zIndex: 100,
-      padding: '10px 0',
+      top: '12px',
+      left: '12px',
+      right: '12px',
+      zIndex: 1000,
+      padding: '8px 0',
       borderRadius: '16px',
       border: '1px solid rgba(46, 125, 50, 0.2)', // Organic green border
-      backgroundColor: 'rgba(253, 250, 246, 0.95)', // Warm sand glass
-      boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+      backgroundColor: 'rgba(253, 250, 246, 0.98)', // Slightly more opaque warm sand
+      boxShadow: '0 8px 32px rgba(0,0,0,0.08)'
     }}>
       <div className="container" style={{
         display: 'flex',
@@ -39,7 +39,7 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
         </Link>
 
         {/* Desktop Links */}
-        <div style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="desktop-menu">
+        <div style={{ display: 'none', gap: '28px', alignItems: 'center' }} className="desktop-menu">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
@@ -115,8 +115,14 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div style={{
-          display: 'flex', flexDirection: 'column', gap: '16px', padding: '16px 20px 24px 20px',
-          borderTop: '1px solid rgba(46, 125, 50, 0.1)', marginTop: '12px'
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '12px', 
+          padding: '12px 20px 24px 20px',
+          borderTop: '1px solid rgba(46, 125, 50, 0.1)', 
+          marginTop: '8px',
+          maxHeight: '80vh',
+          overflowY: 'auto'
         }}>
           {navLinks.map((link) => (
             <NavLink
@@ -125,9 +131,12 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
               onClick={() => setMobileMenuOpen(false)}
               className={({ isActive }) => isActive ? 'nav-active' : ''}
               style={({ isActive }) => ({
-                textDecoration: 'none', fontWeight: 600, fontSize: '1.2rem',
+                textDecoration: 'none', 
+                fontWeight: 600, 
+                fontSize: '1.1rem',
                 color: isActive ? 'var(--color-secondary-green)' : 'var(--color-earth-brown)',
-                padding: '8px 0'
+                padding: '10px 0',
+                borderBottom: '1px solid rgba(0,0,0,0.05)'
               })}
             >
               {link.name}
