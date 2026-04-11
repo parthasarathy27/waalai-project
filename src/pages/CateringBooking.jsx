@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import SuccessOverlay from '../components/SuccessOverlay';
+import LocationPicker from '../components/LocationPicker';
+import { MapPin } from 'lucide-react';
 
 const CateringBooking = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,7 @@ const CateringBooking = () => {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
   const WHATSAPP_NUMBER = "918489822822";
 
@@ -112,6 +115,21 @@ const CateringBooking = () => {
 
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600, color: 'var(--color-earth-brown)' }}>Event Location / Venue</label>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+              <button 
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '10px', padding: '12px',
+                  backgroundColor: 'var(--color-bg-light)', border: '2px dashed var(--color-gold-accent)',
+                  borderRadius: '12px', color: 'var(--color-earth-brown)', fontWeight: 600,
+                  cursor: 'pointer', transition: 'all 0.3s'
+                }}
+              >
+                <MapPin size={20} />
+                Select Venue on Map
+              </button>
+            </div>
             <input type="text" name="location" className="input-field" required value={formData.location} onChange={handleChange} placeholder="Eg. Mahal name in Madurai..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }} />
           </div>
 
@@ -134,6 +152,15 @@ const CateringBooking = () => {
         }} 
         title="Inquiry Sent!" 
         message="Thank you for choosing Waalai Mess for your grand event. We've received your inquiry and our event experts will contact you via WhatsApp soon."
+      />
+
+      <LocationPicker 
+        isOpen={isMapOpen} 
+        onClose={() => setIsMapOpen(false)} 
+        onLocationSelect={(data) => {
+          setFormData({ ...formData, location: data.address });
+          setIsMapOpen(false);
+        }} 
       />
     </div>
   );

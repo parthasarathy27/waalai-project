@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { Loader2, MapPin } from 'lucide-react';
 import SuccessOverlay from './SuccessOverlay';
+import LocationPicker from './LocationPicker';
 
 const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, onClearCart }) => {
   const [customerName, setCustomerName] = useState('');
@@ -12,6 +13,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
   const [guests, setGuests] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isMapOpen, setIsMapOpen] = useState(false);
   
   // User provided phone
   const DELIVERY_RATE_PER_KM = 10;
@@ -104,6 +106,12 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
     onClose();
     // Refresh to clear state and reset the experience
     window.location.href = '/'; 
+  };
+
+  const handleLocationSelect = (data) => {
+    setAddress(data.address);
+    setDistance(data.distance);
+    setIsMapOpen(false);
   };
 
   if (!isOpen) return null;
@@ -242,6 +250,20 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
 
               {orderType === 'delivery' ? (
                 <>
+                  <button 
+                    type="button"
+                    onClick={() => setIsMapOpen(true)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '10px', padding: '12px',
+                      backgroundColor: 'var(--color-bg-light)', border: '2px dashed var(--color-primary-green)',
+                      borderRadius: '12px', color: 'var(--color-secondary-green)', fontWeight: 600,
+                      cursor: 'pointer', transition: 'all 0.3s'
+                    }}
+                  >
+                    <MapPin size={20} />
+                    {address ? "Change Location on Map" : "Select Location from Map"}
+                  </button>
+
                   <textarea 
                     className="input-field" placeholder="Full Delivery Address" rows="3"
                     value={address} onChange={e => setAddress(e.target.value)}
@@ -254,8 +276,12 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                     <input 
                       type="number" className="input-field" min="1"
                       value={distance} onChange={e => setDistance(parseInt(e.target.value) || 0)}
-                      style={{ border: '1px solid var(--color-primary-green)' }} required
+                      style={{ border: '1px solid var(--color-primary-green)', backgroundColor: '#f0f0f0' }} 
+                      readOnly required
                     />
+                    <p style={{ fontSize: '0.8rem', color: 'var(--color-secondary-green)', marginTop: '4px' }}>
+                      Calculated automatically from your selected map location.
+                    </p>
                   </div>
                 </>
               ) : (
@@ -317,6 +343,12 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
         message={orderType === 'delivery' 
           ? "Your healthy Waalai meal is being prepared with care. Check WhatsApp for confirmation!"
           : "We have received your table booking request. We will confirm your reservation shortly via WhatsApp."}
+      />
+
+      <LocationPicker 
+        isOpen={isMapOpen} 
+        onClose={() => setIsMapOpen(false)} 
+        onLocationSelect={handleLocationSelect} 
       />
     </>
   );
