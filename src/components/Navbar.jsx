@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { ShoppingBag, Menu as MenuIcon, X } from 'lucide-react';
+import { ShoppingBag, Menu as MenuIcon, X, UtensilsCrossed } from 'lucide-react';
 import logoUrl from '../assets/waalai_logo.png';
 
 const Navbar = ({ cartItemCount, onOpenCart }) => {
@@ -8,11 +8,9 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Order Online', path: '/order' },
-    { name: 'Table Booking', path: '/booking' },
+    { name: 'Magil Virundhu', path: '/magil-virundhu', icon: <UtensilsCrossed size={18} style={{ marginRight: '8px' }} /> },
     { name: 'Catering', path: '/catering' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -24,8 +22,8 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
       zIndex: 1000,
       padding: '8px 0',
       borderRadius: '16px',
-      border: '1px solid rgba(46, 125, 50, 0.2)', // Organic green border
-      backgroundColor: 'rgba(253, 250, 246, 0.98)', // Slightly more opaque warm sand
+      border: '1px solid rgba(46, 125, 50, 0.2)',
+      backgroundColor: 'rgba(253, 250, 246, 0.98)',
       boxShadow: '0 8px 32px rgba(0,0,0,0.08)'
     }}>
       <div className="container" style={{
@@ -41,22 +39,48 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
         {/* Desktop Links */}
         <div style={{ display: 'none', gap: '28px', alignItems: 'center' }} className="desktop-menu">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              className={({ isActive }) => isActive ? 'nav-active' : ''}
-              style={({ isActive }) => ({
-                textDecoration: 'none',
-                fontWeight: 600,
-                color: isActive ? 'var(--color-secondary-green)' : 'var(--color-earth-brown)',
-                borderBottom: isActive ? '3px solid var(--color-primary-green)' : '3px solid transparent',
-                paddingBottom: '4px',
-                transition: 'all 0.3s ease',
-                fontSize: '1rem'
-              })}
-            >
-              {link.name}
-            </NavLink>
+            link.highlight
+              ? (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  style={({ isActive }) => ({
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    padding: '8px 18px',
+                    borderRadius: '50px',
+                    backgroundColor: isActive ? 'var(--color-dark-green)' : 'var(--color-primary-green)',
+                    color: 'white',
+                    boxShadow: '0 4px 14px rgba(46,125,50,0.3)',
+                    transition: 'all 0.3s ease',
+                    whiteSpace: 'nowrap',
+                  })}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    {link.icon} {link.name}
+                  </span>
+                </NavLink>
+              ) : (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) => isActive ? 'nav-active' : ''}
+                  style={({ isActive }) => ({
+                    textDecoration: 'none',
+                    fontWeight: 600,
+                    color: isActive ? 'var(--color-secondary-green)' : 'var(--color-earth-brown)',
+                    borderBottom: isActive ? '3px solid var(--color-primary-green)' : '3px solid transparent',
+                    paddingBottom: '4px',
+                    transition: 'all 0.3s ease',
+                    fontSize: '1rem'
+                  })}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    {link.icon} {link.name}
+                  </span>
+                </NavLink>
+              )
           ))}
         </div>
 
@@ -85,7 +109,7 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
                 position: 'absolute',
                 top: 0,
                 right: 0,
-                background: 'var(--color-gold-accent)', // Changed from red to gold for better harmony
+                background: 'var(--color-gold-accent)',
                 color: 'white',
                 fontSize: '0.75rem',
                 fontWeight: 'bold',
@@ -125,22 +149,44 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
           overflowY: 'auto'
         }}>
           {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) => isActive ? 'nav-active' : ''}
-              style={({ isActive }) => ({
-                textDecoration: 'none', 
-                fontWeight: 600, 
-                fontSize: '1.1rem',
-                color: isActive ? 'var(--color-secondary-green)' : 'var(--color-earth-brown)',
-                padding: '10px 0',
-                borderBottom: '1px solid rgba(0,0,0,0.05)'
-              })}
-            >
-              {link.name}
-            </NavLink>
+            link.highlight
+              ? (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={({ isActive }) => ({
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: '1.05rem',
+                    padding: '12px 20px',
+                    borderRadius: '12px',
+                    backgroundColor: isActive ? 'var(--color-dark-green)' : 'var(--color-primary-green)',
+                    color: 'white',
+                    textAlign: 'center',
+                    display: 'block',
+                  })}
+                >
+                  {link.name}
+                </NavLink>
+              ) : (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) => isActive ? 'nav-active' : ''}
+                  style={({ isActive }) => ({
+                    textDecoration: 'none', 
+                    fontWeight: 600, 
+                    fontSize: '1.1rem',
+                    color: isActive ? 'var(--color-secondary-green)' : 'var(--color-earth-brown)',
+                    padding: '10px 0',
+                    borderBottom: '1px solid rgba(0,0,0,0.05)'
+                  })}
+                >
+                  {link.name}
+                </NavLink>
+              )
           ))}
         </div>
       )}

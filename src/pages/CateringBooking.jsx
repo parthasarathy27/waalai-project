@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import SuccessOverlay from '../components/SuccessOverlay';
 import LocationPicker from '../components/LocationPicker';
 import { MapPin } from 'lucide-react';
+import WaalaiText from '../components/WaalaiText';
 
 const CateringBooking = () => {
   const [formData, setFormData] = useState({
@@ -68,12 +69,12 @@ const CateringBooking = () => {
 
   return (
     <div className="page-padding">
+      <Breadcrumbs pageName="Catering Services" />
       <div className="container" style={{ maxWidth: '800px' }}>
-        <Breadcrumbs pageName="Catering Services" />
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Event Catering Services</h1>
           <p style={{ color: 'var(--color-earth-brown)', fontSize: '1.2rem', marginBottom: '16px' }}>
-            From grand weddings to intimate gatherings, Waalai Mess provides premium customized catering solutions for your special day.
+            From grand weddings to intimate gatherings, <WaalaiText /> Mess provides premium customized catering solutions for your special day.
           </p>
           <p style={{ color: 'var(--color-secondary-green)', maxWidth: '650px', margin: '0 auto', fontSize: '1rem' }}>
             Hosting a major event? Do not sacrifice health for scale. We cater for thousands of guests while maintaining our strict adherence to traditional cooking methods and 100% natural ingredients, served flawlessly on real Banana Leaves.
@@ -141,12 +142,12 @@ const CateringBooking = () => {
                 Select Venue on Map
               </button>
             </div>
-            <input type="text" name="location" className="input-field" required value={formData.location} onChange={handleChange} placeholder="Eg. Mahal name in Madurai..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }} />
+            <input type="text" name="location" className="input-field" required value={formData.location} onChange={handleChange} placeholder="Eg. Your delivery location or venue..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }} />
           </div>
 
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600, color: 'var(--color-earth-brown)' }}>Specific Menu Requirements</label>
-            <textarea name="requirements" className="input-field" rows="4" value={formData.requirements} onChange={handleChange} placeholder="Eg. Need 200 Organic Veg meals on Banana leaves and 100 Chicken 65 buckets..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }}></textarea>
+            <textarea name="requirements" className="input-field" rows="4" value={formData.requirements} onChange={handleChange} placeholder="Eg. Need 200 Traditional Veg meals on Banana leaves and 100 Chicken 65 buckets..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }}></textarea>
           </div>
 
           <button type="submit" className="btn btn-primary" disabled={isProcessing} style={{ marginTop: '16px', fontSize: '1.2rem', padding: '16px', backgroundColor: 'var(--color-primary-green)' }}>
@@ -162,7 +163,7 @@ const CateringBooking = () => {
           window.location.reload();
         }} 
         title="Inquiry Sent!" 
-        message="Thank you for choosing Waalai Mess for your grand event. We've received your inquiry and our event experts will contact you via WhatsApp soon."
+        message={<>Thank you for choosing <WaalaiText /> Mess for your grand event. We've received your inquiry and our event experts will contact you via WhatsApp soon.</>}
       />
 
       <LocationPicker 

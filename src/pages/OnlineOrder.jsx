@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu';
 import { products } from '../data/products';
 import Breadcrumbs from '../components/Breadcrumbs';
+import WaalaiText from '../components/WaalaiText';
 
 const OnlineOrder = ({ onAddToCart }) => {
   const [searchParams] = useSearchParams();
@@ -28,12 +29,12 @@ const OnlineOrder = ({ onAddToCart }) => {
 
   return (
     <div className="page-padding">
+      <Breadcrumbs pageName="Order Food Online" />
       <div className="container">
-        <Breadcrumbs pageName="Order Food Online" />
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Organic Online Order</h1>
+          <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Authentic Online Order</h1>
           <p style={{ color: 'var(--color-earth-brown)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-            Freshly prepared without artificial flavors. Get your authentic Waalai dishes delivered hot and fresh directly to your door.
+            Freshly prepared without artificial flavors. Get your authentic <WaalaiText /> dishes delivered hot and fresh directly to your door.
           </p>
         </div>
       </div>

@@ -2,31 +2,36 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
-import About from './pages/About';
 import OnlineOrder from './pages/OnlineOrder';
-import HotelBooking from './pages/HotelBooking';
 import CateringBooking from './pages/CateringBooking';
-import Contact from './pages/Contact';
+import MagilVirundhu from './pages/MagilVirundhu';
+import LeafBanner from './components/LeafBanner';
 import Footer from './components/Footer';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, customization = '', weight = 1) => {
     setCartItems(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      // Find if same item with SAME customization AND weight exists
+      const existing = prev.find(item => 
+        item.id === product.id && 
+        item.customization === customization && 
+        item.weight === weight
+      );
       if (existing) {
         return prev.map(item => 
-          item.id === product.id 
+          (item.id === product.id && item.customization === customization && item.weight === weight)
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      return [...prev, { ...product, quantity: 1, customization: '' }];
+      return [...prev, { ...product, quantity: 1, customization: customization, weight: weight }];
     });
     setIsCartOpen(true);
   };
@@ -55,17 +60,18 @@ function App() {
           onOpenCart={() => setIsCartOpen(true)} 
         />
         
+        <ScrollToTop />
+        
         <main style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
             <Route path="/order" element={<OnlineOrder onAddToCart={handleAddToCart} />} />
-            <Route path="/booking" element={<HotelBooking />} />
             <Route path="/catering" element={<CateringBooking />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/magil-virundhu" element={<MagilVirundhu />} />
           </Routes>
         </main>
 
+        <LeafBanner />
         <Footer />
 
         <Cart 

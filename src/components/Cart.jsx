@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Loader2, MapPin } from 'lucide-react';
+import { Loader2, MapPin, UtensilsCrossed } from 'lucide-react';
 import SuccessOverlay from './SuccessOverlay';
 import LocationPicker from './LocationPicker';
+import WaalaiText from './WaalaiText';
 
 const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, onClearCart }) => {
   const [customerName, setCustomerName] = useState('');
@@ -15,13 +16,21 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
   const [showSuccess, setShowSuccess] = useState(false);
   const [isMapOpen, setIsMapOpen] = useState(false);
   
+  const [orderNotes, setOrderNotes] = useState('');
+  
   // User provided phone
   const DELIVERY_RATE_PER_KM = 10;
   const WHATSAPP_NUMBER = "918489822822"; 
 
-  const itemSubtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const itemSubtotal = cartItems.reduce((sum, item) => {
+    const itemPrice = item.isWeightBased ? Math.round(item.price * item.weight) : item.price;
+    return sum + (itemPrice * item.quantity);
+  }, 0);
+  
   const deliveryCharge = orderType === 'delivery' && distance > 0 ? distance * DELIVERY_RATE_PER_KM : 0;
   const totalCost = itemSubtotal + deliveryCharge;
+
+
 
   const handleCheckout = () => {
     if (!customerName) {
@@ -43,39 +52,55 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
 
     let message = "";
     if (orderType === 'delivery') {
-      message = `*🌿 New Organic Order from Waalai Mess (Delivery) 🌿*\n\n`;
+      message = `*🌿 New Authentic Order from Waalai Mess (Delivery) 🌿*\n`;
+      message += `_புதிய உணவு ஆர்டர் - ஹோம் டெலிவரி_\n\n`;
       message += `*Customer:* ${customerName}\n`;
       message += `*Address:* ${address}\n`;
       message += `*Distance:* ${distance} km\n\n`;
     } else {
-      message = `*🏨 New Table Pre-booking + Order - Waalai Mess 🏨*\n\n`;
+      message = `*🍛 New Magil Virundhu Booking - Waalai Mess 🍛*\n`;
+      message += `_மகிழ் விருந்து - Traditional Feast Reservation_\n\n`;
       message += `*Customer:* ${customerName}\n`;
       message += `*Number of Guests:* ${guests}\n`;
       message += `*Date:* ${bookingDate}\n`;
       message += `*Time:* ${bookingTime}\n\n`;
     }
     
-    message += `*--- Waalai Elai Details ---*\n`;
+    message += `*--- Waalai Elai Details (உணவு விவரங்கள்) ---*\n`;
     cartItems.forEach((item, index) => {
-      message += `${index + 1}. *${item.name}* (x${item.quantity}) - ₹${item.price * item.quantity}\n`;
+      const portionStr = item.isWeightBased ? `${item.weight} KG` : ''; // Remove "1 Unit" label
+      const itemPriceTotal = item.isWeightBased ? Math.round(item.price * item.weight) * item.quantity : item.price * item.quantity;
+      const priceDisplay = item.price > 0 ? `₹${itemPriceTotal}` : '(Price on Confirmation)';
+      
+      const itemTitle = portionStr ? `${item.name} [${portionStr}]` : item.name;
+      message += `${index + 1}. *${itemTitle}* (x${item.quantity}) - ${priceDisplay}\n`;
       if (item.customization) {
-        message += `   _Note: ${item.customization}_\n`;
+        message += `   _Choice: ${item.customization}_\n`;
       }
     });
 
+    if (orderNotes) {
+      message += `\n*--- Special Instructions (குறிப்புகள்) ---*\n`;
+      message += `_Notes: ${orderNotes}_\n`;
+    }
+
     message += `\n*-------------------*\n`;
-    message += `*Items Subtotal:* ₹${itemSubtotal}\n`;
+    message += `*Subtotal:* ₹${itemSubtotal}\n`;
     if (orderType === 'delivery') {
       message += `*Delivery Fee:* ₹${deliveryCharge} (₹${DELIVERY_RATE_PER_KM}/km)\n`;
     }
-    message += `*Total Amount:* *₹${totalCost}*\n`;
+    message += `*Total Amount (மொத்தம்):* *₹${totalCost}*\n`;
     message += `*-------------------*\n\n`;
 
+    message += `*📌 Important Check:*\n`;
+    message += `- 1 KG scale means full weight meat/rice as specified.\n`;
+    message += `- Minimum order starts from 1 KG per dish.\n\n`;
+
     if (orderType === 'dinein') {
-      message += `*⚠️ Note:* I understand that table bookings and pre-orders must be made at least *one day* in advance.\n\n`;
+      message += `*⚠️ Note:* I understand that Magil Virundhu (மகிழ் விருந்து) bookings must be made at least *one day* in advance.\n\n`;
     }
 
-    message += `Please confirm my healthy order!`;
+    message += `Please confirm my healthy order! 🙏`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -90,6 +115,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
       setCustomerName('');
       setAddress('');
       setDistance(1);
+      setOrderNotes('');
       setBookingDate('');
       setBookingTime('');
       setGuests('');
@@ -140,13 +166,13 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
           <div>
-            <h2 style={{ fontSize: '1.8rem', color: 'white', fontFamily: "'Outfit', cursive" }}>Your Waalai Elai</h2>
+            <h2 style={{ fontSize: '1.8rem', color: 'white', fontFamily: "'Outfit', cursive" }}>Your <WaalaiText /> Elai</h2>
             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>Freshly prepared without preservatives</p>
           </div>
           <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.2)', color: 'white', border: 'none', fontSize: '1.5rem', width: '40px', height: '40px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>&times;</button>
         </div>
 
-        <div style={{ padding: '30px', flex: 1 }}>
+        <div style={{ padding: '30px', flex: 1, paddingBottom: 0 }}>
           {cartItems.length === 0 ? (
             <div style={{ textAlign: 'center', color: 'white', marginTop: '40px', backgroundColor: 'rgba(0,0,0,0.2)', padding: '40px', borderRadius: '16px' }}>
               <p style={{ fontSize: '1.2rem', marginBottom: '16px' }}>Your leaf is empty.</p>
@@ -155,62 +181,108 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {cartItems.map((item) => (
-                <div key={item.id} style={{ 
+                <div key={`${item.id}-${item.customization}-${item.weight}`} style={{ 
                   backgroundColor: 'rgba(255,255,255,0.95)', 
-                  padding: '20px', 
+                  padding: '16px 20px', 
                   borderRadius: '16px',
                   boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
                 }}>
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '12px', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '8px', alignItems: 'center' }}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      style={{ width: '60px', height: '60px', borderRadius: '8px', objectFit: 'cover', border: '2px solid rgba(76, 171, 76, 0.3)' }}
+                      style={{ width: '45px', height: '45px', borderRadius: '8px', objectFit: 'cover', border: '2px solid rgba(76, 171, 76, 0.3)' }}
                     />
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                        <h4 style={{ fontSize: '1.1rem', color: 'var(--color-earth-brown)', margin: 0, paddingRight: '8px' }}>{item.name}</h4>
-                        <span style={{ fontWeight: 'bold', color: 'var(--color-secondary-green)', fontSize: '1.1rem' }}>₹{item.price * item.quantity}</span>
+                        <div>
+                           <h4 style={{ fontSize: '1rem', color: 'var(--color-earth-brown)', margin: 0 }}>{item.name}</h4>
+                           <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                              {item.isWeightBased && (
+                                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-secondary-green)', backgroundColor: 'rgba(76, 171, 76, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                                  {item.weight} KG
+                                </span>
+                              )}
+                              {item.customization && (
+                                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-primary-green)', backgroundColor: 'rgba(76, 171, 76, 0.1)', padding: '2px 6px', borderRadius: '4px', textTransform: 'uppercase' }}>
+                                  {item.customization}
+                                </span>
+                              )}
+                           </div>
+                        </div>
+                        <span style={{ fontWeight: 'bold', color: 'var(--color-secondary-green)', fontSize: '1rem' }}>
+                          {item.price > 0 ? `₹${item.isWeightBased ? Math.round(item.price * item.weight) * item.quantity : item.price * item.quantity}` : 'TBD'}
+                        </span>
                       </div>
                     </div>
                   </div>
                   
-                  <div style={{ marginBottom: '16px' }}>
-                    <input 
-                      type="text" 
-                      className="input-field" 
-                      placeholder="Add customization (e.g. less spice, no ghee)" 
-                      value={item.customization || ''}
-                      onChange={(e) => onUpdateCartItem(item.id, { customization: e.target.value })}
-                      style={{ fontSize: '0.95rem', padding: '10px', backgroundColor: '#fdfaf6', border: '1px solid var(--color-primary-green)' }}
-                    />
-                  </div>
-
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <button 
-                        style={{ width: '32px', height: '32px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-earth-brown)', color: 'white', cursor: 'pointer', fontSize: '1.2rem' }}
+                        style={{ width: '24px', height: '24px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-earth-brown)', color: 'white', cursor: 'pointer', fontSize: '1rem' }}
                         onClick={() => onUpdateCartItem(item.id, { quantity: Math.max(1, item.quantity - 1) })}
                       >-</button>
-                      <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>{item.quantity}</span>
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700 }}>{item.quantity}</span>
                       <button 
-                        style={{ width: '32px', height: '32px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-primary-green)', color: 'white', cursor: 'pointer', fontSize: '1.2rem' }}
+                        style={{ width: '24px', height: '24px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-primary-green)', color: 'white', cursor: 'pointer', fontSize: '1rem' }}
                         onClick={() => onUpdateCartItem(item.id, { quantity: item.quantity + 1 })}
                       >+</button>
                     </div>
                     <button 
-                      style={{ background: 'none', border: 'none', color: 'var(--color-accent-red)', cursor: 'pointer', fontSize: '0.95rem', fontWeight: 600, textDecoration: 'underline' }}
+                      style={{ background: 'none', border: 'none', color: 'var(--color-accent-red)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'underline' }}
                       onClick={() => onRemoveCartItem(item.id)}
-                    >Remove Item</button>
+                    >Remove</button>
                   </div>
                 </div>
               ))}
+              
+              {/* Special Instructions / Customization Box */}
+              <div style={{ 
+                marginTop: '10px', padding: '20px', backgroundColor: 'rgba(255,255,255,0.1)', 
+                borderRadius: '20px', border: '1px solid rgba(255,255,255,0.3)', color: 'white',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                   <h4 style={{ margin: 0, fontSize: '1.1rem', fontFamily: "'Outfit', cursive" }}>📝 Special Instructions</h4>
+                   <span style={{ fontSize: '0.7rem', opacity: 0.8 }}>Optional</span>
+                </div>
+                
+                <p style={{ fontSize: '0.8rem', opacity: 0.9, marginBottom: '12px' }}>
+                  Mention requests like "Salt Reduction", "Extra Spicy", etc.
+                </p>
+
+                <textarea
+                  value={orderNotes}
+                  onChange={(e) => setOrderNotes(e.target.value)}
+                  placeholder="Example: Reduce salt in my mutton gravy..."
+                  style={{
+                    width: '100%',
+                    height: '90px',
+                    padding: '14px',
+                    borderRadius: '12px',
+                    border: '2px solid rgba(255,255,255,0.8)',
+                    backgroundColor: '#FFFFFF', // Solid White
+                    color: '#1B5E20', // Dark Green Text
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    resize: 'none',
+                    fontFamily: 'inherit',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                    outline: 'none'
+                  }}
+                />
+
+                <div style={{ marginTop: '12px', fontSize: '0.7rem', opacity: 0.8, fontStyle: 'italic', textAlign: 'center' }}>
+                  All orders start from 1 KG minimum as per the traditional "1 KG Format".
+                </div>
+              </div>
             </div>
           )}
         </div>
 
         {cartItems.length > 0 && (
-          <div style={{ padding: '30px', backgroundColor: 'rgba(255,255,255,0.95)', borderTopLeftRadius: '24px', borderTopRightRadius: '24px' }}>
+          <div style={{ padding: '30px', backgroundColor: 'rgba(255,255,255,0.95)', borderTopLeftRadius: '24px', borderTopRightRadius: '24px', marginTop: '30px' }}>
             <h3 style={{ marginBottom: '20px', fontSize: '1.3rem', color: 'var(--color-secondary-green)' }}>Checkout Details</h3>
             
             <div style={{ 
@@ -237,7 +309,9 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                   fontWeight: 600, transition: 'all 0.3s'
                 }}
               >
-                🍽️ Table Pre-book
+                <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                  <UtensilsCrossed size={18} /> Magil Virundhu
+                </span>
               </button>
             </div>
 
@@ -271,7 +345,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                   />
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--color-earth-brown)', fontWeight: 600 }}>
-                      Distance from Waalai Mess (in km)
+                      Distance from <WaalaiText /> Mess (in km)
                     </label>
                     <input 
                       type="number" className="input-field" min="1"
@@ -304,7 +378,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                     <input type="number" className="input-field" placeholder="Eg. 4" value={guests} onChange={e => setGuests(e.target.value)} min="1" style={{ border: '1px solid var(--color-primary-green)' }} required />
                   </div>
                   <p style={{ fontSize: '0.85rem', color: '#856404', backgroundColor: 'rgba(255,193,7,0.1)', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,193,7,0.3)' }}>
-                    📅 <strong>Note:</strong> Items must be booked at least one day in advance for fresh preparation.
+                    <UtensilsCrossed size={16} style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>Magil Virundhu (மகிழ் விருந்து):</strong> This traditional feast booking must be placed at least <strong>one day in advance</strong> for authentic fresh preparation on banana leaves. Rooted in the ancient Tamil wisdom of "Unave Marundhu", we serve authentic, 100% natural, and traditional food on traditional banana leaves.
                   </p>
                 </div>
               )}
@@ -342,10 +416,10 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
       <SuccessOverlay 
         isOpen={showSuccess} 
         onClose={handleCloseAll} 
-        title={orderType === 'delivery' ? "Order Placed!" : "Booking Request Sent!"}
+        title={orderType === 'delivery' ? "Order Placed!" : "Magil Virundhu Booked!"}
         message={orderType === 'delivery' 
-          ? "Your healthy Waalai meal is being prepared with care. Check WhatsApp for confirmation!"
-          : "We have received your table booking request. We will confirm your reservation shortly via WhatsApp."}
+          ? <>Your healthy <WaalaiText /> meal is being prepared with care. Check WhatsApp for confirmation!</>
+          : "Your Magil Virundhu (மகிழ் விருந்து) feast is reserved! We will confirm your booking shortly via WhatsApp."}
       />
 
       <LocationPicker 

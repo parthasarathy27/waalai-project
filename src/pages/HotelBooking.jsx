@@ -40,7 +40,7 @@ const HotelBooking = () => {
     }
 
     message += `\n*⚠️ Note:* I understand that table bookings and pre-orders must be made at least *one day* in advance.\n`;
-    message += `\nPlease confirm my organic dining booking!`;
+    message += `\nPlease confirm my traditional dining booking!`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -93,7 +93,7 @@ const HotelBooking = () => {
             </div>
             <ul style={{ margin: 0, paddingLeft: '24px', fontSize: '0.95rem' }}>
               <li>Table bookings and pre-ordered items must be booked at least <strong>one day (24 hours)</strong> before your visit.</li>
-              <li>This ensures we source and prepare the freshest organic ingredients for your meal.</li>
+              <li>This ensures we source and prepare the freshest natural ingredients for your meal.</li>
             </ul>
           </div>
           <p style={{ color: 'var(--color-secondary-green)', maxWidth: '600px', margin: '0 auto', fontSize: '1rem' }}>
@@ -138,7 +138,7 @@ const HotelBooking = () => {
 
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 600, color: 'var(--color-earth-brown)' }}>Special Requests / Dietary Requirements</label>
-            <textarea name="specialRequest" className="input-field" rows="2" value={formData.specialRequest} onChange={handleChange} placeholder="E.g. No spicy, strictly organic..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }}></textarea>
+            <textarea name="specialRequest" className="input-field" rows="2" value={formData.specialRequest} onChange={handleChange} placeholder="E.g. No spicy, strictly traditional..." style={{ border: '1px solid rgba(76,171,76,0.3)', backgroundColor: 'var(--color-warm-sand)' }}></textarea>
           </div>
 
           <button type="submit" className="btn btn-primary" disabled={isProcessing} style={{ marginTop: '8px', fontSize: '1.2rem', padding: '16px', backgroundColor: 'var(--color-secondary-green)' }}>

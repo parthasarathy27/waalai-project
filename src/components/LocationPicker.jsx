@@ -163,7 +163,7 @@ const LocationPicker = ({ isOpen, onClose, onLocationSelect }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <div>
             <h3 style={{ color: 'var(--color-dark-green)', margin: 0, fontSize: '1.5rem', fontFamily: "'Outfit', sans-serif" }}>Delivery Location</h3>
-            <p style={{ color: 'var(--color-earth-brown)', fontSize: '0.85rem', margin: '4px 0 0', opacity: 0.8 }}>Select your area in Madurai for fresh organic food</p>
+            <p style={{ color: 'var(--color-earth-brown)', fontSize: '0.85rem', margin: '4px 0 0', opacity: 0.8 }}>Select your delivery area for fresh authentic food</p>
           </div>
           <button onClick={onClose} style={{ border: 'none', background: '#f0f0f0', borderRadius: '50%', width: '44px', height: '44px', cursor: 'pointer', fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>&times;</button>
         </div>

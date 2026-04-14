@@ -10,7 +10,7 @@ const Contact = () => {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px', fontSize: '2.5rem' }}>Get in Touch</h1>
           <p style={{ color: 'var(--color-earth-brown)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-            We'd love to hear from you. Find us at our organic restaurant in Madurai or reach out via WhatsApp for immediate assistance.
+            We'd love to hear from you. Find us at our traditional restaurant in Madurai or reach out via WhatsApp for immediate assistance.
           </p>
         </div>
 
