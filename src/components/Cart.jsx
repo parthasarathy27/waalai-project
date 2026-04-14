@@ -68,12 +68,12 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
     
     message += `*--- Waalai Elai Details (உணவு விவரங்கள்) ---*\n`;
     cartItems.forEach((item, index) => {
-      const portionStr = item.isWeightBased ? `${item.weight} KG` : ''; // Remove "1 Unit" label
-      const itemPriceTotal = item.isWeightBased ? Math.round(item.price * item.weight) * item.quantity : item.price * item.quantity;
+      const portionStr = item.isWeightBased ? `${item.quantity} KG` : `${item.quantity} Plt`;
+      const itemPriceTotal = item.price * item.quantity;
       const priceDisplay = item.price > 0 ? `₹${itemPriceTotal}` : '(Price on Confirmation)';
       
       const itemTitle = portionStr ? `${item.name} [${portionStr}]` : item.name;
-      message += `${index + 1}. *${itemTitle}* (x${item.quantity}) - ${priceDisplay}\n`;
+      message += `${index + 1}. *${itemTitle}* - ${priceDisplay}\n`;
       if (item.customization) {
         message += `   _Choice: ${item.customization}_\n`;
       }
@@ -181,7 +181,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {cartItems.map((item) => (
-                <div key={`${item.id}-${item.customization}-${item.weight}`} style={{ 
+                <div key={`${item.id}-${item.customization}`} style={{ 
                   backgroundColor: 'rgba(255,255,255,0.95)', 
                   padding: '16px 20px', 
                   borderRadius: '16px',
@@ -198,11 +198,6 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                         <div>
                            <h4 style={{ fontSize: '1rem', color: 'var(--color-earth-brown)', margin: 0 }}>{item.name}</h4>
                            <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
-                              {item.isWeightBased && (
-                                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-secondary-green)', backgroundColor: 'rgba(76, 171, 76, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>
-                                  {item.weight} KG
-                                </span>
-                              )}
                               {item.customization && (
                                 <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--color-primary-green)', backgroundColor: 'rgba(76, 171, 76, 0.1)', padding: '2px 6px', borderRadius: '4px', textTransform: 'uppercase' }}>
                                   {item.customization}
@@ -211,7 +206,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                            </div>
                         </div>
                         <span style={{ fontWeight: 'bold', color: 'var(--color-secondary-green)', fontSize: '1rem' }}>
-                          {item.price > 0 ? `₹${item.isWeightBased ? Math.round(item.price * item.weight) * item.quantity : item.price * item.quantity}` : 'TBD'}
+                          {item.price > 0 ? `₹${item.price * item.quantity}` : 'TBD'}
                         </span>
                       </div>
                     </div>
@@ -220,18 +215,20 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <button 
-                        style={{ width: '24px', height: '24px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-earth-brown)', color: 'white', cursor: 'pointer', fontSize: '1rem' }}
-                        onClick={() => onUpdateCartItem(item.id, { quantity: Math.max(1, item.quantity - 1) })}
+                        style={{ width: '28px', height: '28px', borderRadius: '8px', border: 'none', backgroundColor: '#e2e8f0', cursor: 'pointer', fontWeight: 'bold' }}
+                        onClick={() => onUpdateCartItem(item.id, item.customization, { quantity: Math.max(1, item.quantity - 1) })}
                       >-</button>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 700 }}>{item.quantity}</span>
+                      <span style={{ fontSize: '1rem', fontWeight: 800 }}>
+                        {item.quantity} {item.isWeightBased ? 'KG' : 'Plt'}
+                      </span>
                       <button 
-                        style={{ width: '24px', height: '24px', borderRadius: '50%', border: 'none', backgroundColor: 'var(--color-primary-green)', color: 'white', cursor: 'pointer', fontSize: '1rem' }}
-                        onClick={() => onUpdateCartItem(item.id, { quantity: item.quantity + 1 })}
+                        style={{ width: '28px', height: '28px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--color-primary-green)', color: 'white', cursor: 'pointer', fontWeight: 'bold' }}
+                        onClick={() => onUpdateCartItem(item.id, item.customization, { quantity: item.quantity + 1 })}
                       >+</button>
                     </div>
                     <button 
                       style={{ background: 'none', border: 'none', color: 'var(--color-accent-red)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'underline' }}
-                      onClick={() => onRemoveCartItem(item.id)}
+                      onClick={() => onRemoveCartItem(item.id, item.customization)}
                     >Remove</button>
                   </div>
                 </div>

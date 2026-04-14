@@ -2,14 +2,14 @@
 
 :root {
   /* Strict Organic Banana Leaf Palette */
-  --color-primary-green: #4cab4c; /* Fresh leaf green */
-  --color-secondary-green: #2e7d32; /* Deep forest green */
-  --color-dark-green: #1b5e20; /* Very dark leaf shadow */
+  --color-primary-green: #57b605; /* Requested brand neon/vibrant green */
+  --color-secondary-green: #459204; /* Scaled deep green */
+  --color-dark-green: #295702; /* Scaled dark shadow green */
   
   /* Organic/Earthy Colors */
   --color-earth-brown: #4e342e; /* Rich soil brown */
   --color-warm-sand: #fffbf0; /* Soft, warm off-white */
-  --color-banana-leaf: #7cb342;
+  --color-banana-leaf: #57b605;
   --color-gold-accent: #f57f17; /* Turmeric/Gold */
   
   /* Neutral Colors */

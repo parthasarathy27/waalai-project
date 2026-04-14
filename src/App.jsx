@@ -16,34 +16,33 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const handleAddToCart = (product, customization = '', weight = 1) => {
+  const handleAddToCart = (product, customization = '', addedQuantity = 1) => {
     setCartItems(prev => {
-      // Find if same item with SAME customization AND weight exists
+      // Find if same item with SAME customization exists
       const existing = prev.find(item => 
         item.id === product.id && 
-        item.customization === customization && 
-        item.weight === weight
+        item.customization === customization
       );
       if (existing) {
         return prev.map(item => 
-          (item.id === product.id && item.customization === customization && item.weight === weight)
-            ? { ...item, quantity: item.quantity + 1 }
+          (item.id === product.id && item.customization === customization)
+            ? { ...item, quantity: item.quantity + addedQuantity }
             : item
         );
       }
-      return [...prev, { ...product, quantity: 1, customization: customization, weight: weight }];
+      return [...prev, { ...product, quantity: addedQuantity, customization: customization }];
     });
     setIsCartOpen(true);
   };
 
-  const handleUpdateCartItem = (id, updates) => {
+  const handleUpdateCartItem = (id, customization, updates) => {
     setCartItems(prev => prev.map(item => 
-      item.id === id ? { ...item, ...updates } : item
+      (item.id === id && item.customization === customization) ? { ...item, ...updates } : item
     ));
   };
 
-  const handleRemoveCartItem = (id) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
+  const handleRemoveCartItem = (id, customization) => {
+    setCartItems(prev => prev.filter(item => !(item.id === id && item.customization === customization)));
   };
 
   const handleClearCart = () => {

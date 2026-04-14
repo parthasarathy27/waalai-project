@@ -276,27 +276,21 @@ export const products = [
   // 1KG Biryani
   {
     id: 24,
-    name: "1kg Mutton Biryani",
-    tamilName: "1கிலோ மட்டன் பிரியாணி",
-    description: "Signature Seeraga Samba mutton biryani, slow-cooked for hours to lock in flavor.",
-    price: 1800,
+    name: "1kg Meat Biryani / Fried Rice",
+    tamilName: "1கிலோ பிரியாணி / ப்ரைடு ரைஸ்",
+    description: "Signature Seeraga Samba biryani or savory fried rice in 1KG portion.",
+    price: 1100,
+    typePrices: {
+      'Chicken Biryani': 1100,
+      'Mutton Biryani': 1800,
+      'Chicken Fried Rice': 1100
+    },
     category: "1KG Biryani",
     isVeg: false,
     image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop",
-    isWeightBased: true
-  },
-  {
-    id: 25,
-    name: "1kg Chicken Biryani / Fried Rice",
-    tamilName: "1கிலோ சிக்கன் பிரியாணி / ப்ரைடு ரைஸ்",
-    description: "Your choice of aromatic chicken biryani or savory chicken fried rice in 1KG portion.",
-    price: 1100,
-    category: "1KG Biryani",
-    isVeg: false,
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop",
     isWeightBased: true,
     canChooseType: true,
-    typeOptions: ['Biryani', 'Fried Rice']
+    typeOptions: ['Chicken Biryani', 'Mutton Biryani', 'Chicken Fried Rice']
   },
   {
     id: 26,
@@ -316,8 +310,7 @@ export const products = [
     name: "Traditional Pathiya Sapadu",
     tamilName: "பாரம்பரிய பத்திய சாப்பாடு",
     description: "Authentic dietary meal prepared with medicinal herbs and zero spices. Ideal for recovery.",
-    price: 0,
-    priceStatus: "Price on Confirmation",
+    price: 150,
     category: "Pathiya Sapadu",
     isVeg: true,
     image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
@@ -328,32 +321,33 @@ export const products = [
     name: "Idly / Chappathi / Idiyappam",
     tamilName: "இட்லி / சப்பாத்தி / இடியாப்பம்",
     description: "Soft steamed idly, hand-rolled chappathi, or fresh idiyappam. Served with mild accompaniments.",
-    price: 0,
-    priceStatus: "Price on Confirmation",
+    price: 15,
     category: "Pathiya Sapadu",
     isVeg: true,
     image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop",
-    isWeightBased: false
+    isWeightBased: false,
+    canChooseType: true,
+    typeOptions: ['Idly', 'Chappathi', 'Idiyappam']
   },
   {
     id: 29,
     name: "Rice / Veg / Rasam / Variety Rice",
     tamilName: "சாதம் / காய்கறிகள் / ரசம் / கலவை சாதம்",
     description: "Pure traditional rice, seasonal vegetable poriyal, and soothing garlic rasam bundle.",
-    price: 0,
-    priceStatus: "Price on Confirmation",
+    price: 120,
     category: "Pathiya Sapadu",
     isVeg: true,
     image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
-    isWeightBased: false
+    isWeightBased: false,
+    canChooseType: true,
+    typeOptions: ['Plain Rice', 'Variety Rice', 'Rasam Set']
   },
   {
     id: 30,
     name: "Parotta",
     tamilName: "பரோட்டா",
     description: "Hand-stretched traditional layered parotta. Soft and fluffy.",
-    price: 0,
-    priceStatus: "Price on Confirmation",
+    price: 20,
     category: "Pathiya Sapadu",
     isVeg: true,
     image: "https://images.unsplash.com/photo-1589302168068-964664d93cb0?q=80&w=600&auto=format&fit=crop",
