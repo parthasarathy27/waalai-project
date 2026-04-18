@@ -40,9 +40,9 @@ export const products = [
   },
   {
     id: 4,
-    name: "1kg Kudal Kuzhambu",
-    tamilName: "1கிலோ குடல் குழம்பு",
-    description: "Exquisite traditional delicacy made with carefully cleaned and spiced boti/intestines.",
+    name: "1kg Bone/nalli Kuzhambu",
+    tamilName: "1கிலோ நல்லி எலும்பு குழம்பு",
+    description: "Exquisite traditional delicacy made with succulent nalli marrow bones simmered in spiced gravy.",
     price: 1100,
     category: "1KG Non-Veg",
     isVeg: false,

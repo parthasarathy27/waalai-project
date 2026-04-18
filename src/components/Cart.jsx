@@ -23,8 +23,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
   const WHATSAPP_NUMBER = "918489822822"; 
 
   const itemSubtotal = cartItems.reduce((sum, item) => {
-    const itemPrice = item.isWeightBased ? Math.round(item.price * item.weight) : item.price;
-    return sum + (itemPrice * item.quantity);
+    return sum + (item.price * item.quantity);
   }, 0);
   
   const deliveryCharge = orderType === 'delivery' && distance > 0 ? distance * DELIVERY_RATE_PER_KM : 0;
@@ -236,16 +235,16 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
               
               {/* Special Instructions / Customization Box */}
               <div style={{ 
-                marginTop: '10px', padding: '20px', backgroundColor: 'rgba(255,255,255,0.1)', 
-                borderRadius: '20px', border: '1px solid rgba(255,255,255,0.3)', color: 'white',
+                marginTop: '10px', padding: '24px', backgroundColor: 'rgba(255,255,255,0.15)', 
+                borderRadius: '20px', border: '1px solid rgba(255,255,255,0.5)', color: 'white',
                 boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
               }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                   <h4 style={{ margin: 0, fontSize: '1.1rem', fontFamily: "'Outfit', cursive" }}>📝 Special Instructions</h4>
-                   <span style={{ fontSize: '0.7rem', opacity: 0.8 }}>Optional</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', color: 'white' }}>
+                   <h4 style={{ margin: 0, fontSize: '1.3rem', fontFamily: "'Outfit', cursive", color: 'white' }}>📝 Special Instructions</h4>
+                   <span style={{ fontSize: '0.9rem', color: 'white', fontWeight: 600 }}>Optional</span>
                 </div>
                 
-                <p style={{ fontSize: '0.8rem', opacity: 0.9, marginBottom: '12px' }}>
+                <p style={{ fontSize: '1rem', color: 'white', marginBottom: '16px', lineHeight: 1.5 }}>
                   Mention requests like "Salt Reduction", "Extra Spicy", etc.
                 </p>
 
@@ -255,13 +254,13 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                   placeholder="Example: Reduce salt in my mutton gravy..."
                   style={{
                     width: '100%',
-                    height: '90px',
-                    padding: '14px',
+                    height: '100px',
+                    padding: '16px',
                     borderRadius: '12px',
-                    border: '2px solid rgba(255,255,255,0.8)',
+                    border: '2px solid rgba(255,255,255,0.9)',
                     backgroundColor: '#FFFFFF', // Solid White
                     color: '#1B5E20', // Dark Green Text
-                    fontSize: '1rem',
+                    fontSize: '1.1rem',
                     fontWeight: '600',
                     resize: 'none',
                     fontFamily: 'inherit',
@@ -270,7 +269,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                   }}
                 />
 
-                <div style={{ marginTop: '12px', fontSize: '0.7rem', opacity: 0.8, fontStyle: 'italic', textAlign: 'center' }}>
+                <div style={{ marginTop: '16px', fontSize: '1rem', color: 'white', fontStyle: 'italic', textAlign: 'center', fontWeight: 600 }}>
                   All orders start from 1 KG minimum as per the traditional "1 KG Format".
                 </div>
               </div>
@@ -345,13 +344,13 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                       Distance from <WaalaiText /> Mess (in km)
                     </label>
                     <input 
-                      type="number" className="input-field" min="1"
-                      value={distance} onChange={e => setDistance(parseInt(e.target.value) || 0)}
-                      style={{ border: '1px solid var(--color-primary-green)', backgroundColor: '#f0f0f0' }} 
-                      readOnly required
+                      type="number" className="input-field" min="0" step="0.5"
+                      value={distance} onChange={e => setDistance(Math.max(0, parseFloat(e.target.value) || 0))}
+                      style={{ border: '1px solid var(--color-primary-green)' }} 
+                      required
                     />
                     <p style={{ fontSize: '0.8rem', color: 'var(--color-secondary-green)', marginTop: '4px' }}>
-                      Calculated automatically from your selected map location.
+                      Auto-calculated from map, but you can manually adjust if needed.
                     </p>
                   </div>
                   <p style={{ fontSize: '0.85rem', color: '#856404', backgroundColor: 'rgba(255,193,7,0.1)', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,193,7,0.3)', margin: 0 }}>

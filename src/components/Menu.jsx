@@ -66,10 +66,10 @@ const Menu = ({ onAddToCart, typeFilter }) => {
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <h2 style={{ color: 'var(--color-dark-green)', marginBottom: '16px', fontSize: '2.5rem' }}>
-            {typeFilter === 'veg' ? 'Pure Organic Veg Menu' : typeFilter === 'nonveg' ? 'Traditional Non-Veg Menu' : 'Authentic Menu'}
+            {typeFilter === 'veg' ? 'Pure Organic Veg Menu' : typeFilter === 'nonveg' ? 'Traditional Non-Veg Menu' : 'Signature Menu'}
           </h2>
           <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-earth-brown)' }}>
-            Exploring our completely authentic traditional recipes.
+            Explore our crafted heritage recipes, prepared with pure care.
           </p>
         </div>
 
@@ -146,7 +146,7 @@ const Menu = ({ onAddToCart, typeFilter }) => {
                 </div>
                 
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <h3 style={{ fontSize: '1.25rem', marginBottom: '4px', color: 'var(--color-text-dark)' }}>{product.name}</h3>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '6px', color: 'var(--color-dark-green)', lineHeight: 1.2 }}>{product.name}</h3>
                   
                   {/* Tamil Name in Leaf Format */}
                   {product.tamilName && (
