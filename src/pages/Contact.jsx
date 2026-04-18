@@ -21,11 +21,11 @@ const Contact = () => {
               <MapPin size={32} color="var(--color-primary-green)" style={{ flexShrink: 0 }} />
               <div>
                 <h3 style={{ marginBottom: '8px', color: 'var(--color-dark-green)' }}>Our Branches</h3>
-                <p style={{ color: 'var(--color-earth-brown)', marginBottom: '12px' }}>
-                  <strong>Anna Nagar:</strong> Sathamangalam (Near Ambiga Cinemas), Madurai.
+                <p style={{ color: 'var(--color-earth-brown)', marginBottom: '12px', fontSize: '0.9rem' }}>
+                  <strong>Main Branch:</strong> 12, Lady Doak College Rd, Chinna Chokikulam, Madurai, Tamil Nadu 625002.
                 </p>
-                <p style={{ color: 'var(--color-earth-brown)' }}>
-                  <strong>KK Nagar:</strong> KK Nagar Area, Madurai.
+                <p style={{ color: 'var(--color-earth-brown)', fontSize: '0.9rem' }}>
+                  <strong>Anna Nagar:</strong> No:187, 80 Feet Rd, opp. DD Designs, Near Ambiga Cinemas, Anna Nagar, Sathamangalam, Tamil Nadu 625020.
                 </p>
               </div>
             </div>
@@ -34,7 +34,9 @@ const Contact = () => {
               <Phone size={32} color="var(--color-gold-accent)" style={{ flexShrink: 0 }} />
               <div>
                 <h3 style={{ marginBottom: '8px', color: 'var(--color-dark-green)' }}>Phone Number</h3>
-                <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-earth-brown)' }}>084898 22822</p>
+                <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-earth-brown)' }}>
+                  <a href="tel:9367757775" style={{ color: 'inherit', textDecoration: 'none' }}>93677 57775</a>
+                </p>
                 <p style={{ fontSize: '0.9rem', marginTop: '4px', color: 'var(--color-secondary-green)' }}>Call us or message on WhatsApp instantly.</p>
               </div>
             </div>

@@ -278,9 +278,9 @@ const Home = () => {
       <section ref={addToRefs} className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <HeartHandshake size={64} color="var(--color-primary-green)" style={{ margin: '0 auto 24px' }} />
-          <h2 style={{ fontSize: '2.8rem', color: 'var(--color-dark-green)', marginBottom: '24px' }}><WaalaiText style={{height: '1em'}}/> Care for Special People</h2>
+          <h2 style={{ fontSize: '2.8rem', color: 'var(--color-dark-green)', marginBottom: '24px' }}><WaalaiText style={{height: '1em'}}/> Care for Uniquely Gifted Guests</h2>
           <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 40px', color: 'var(--color-earth-brown)' }}>
-            True hospitality knows no boundaries. We are proud to offer a flat **50% discount** daily on all dine-in meals for our guests with special needs.
+            True hospitality knows no boundaries. We are proud to offer a flat **50% discount** daily on all dine-in meals for our uniquely gifted guests (தனித்திறன் படைத்தவர்கள்).
           </p>
           <div style={{ 
             display: 'inline-block', padding: '24px 48px', backgroundColor: 'var(--color-primary-green)', 
@@ -319,14 +319,15 @@ const Home = () => {
                 <span style={{ color: 'var(--color-banana-leaf)', fontSize: '0.7em' }}>Magil Virundhu</span>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
-                Pre-book an authentic traditional feast on fresh banana leaves. Mutton Kuzhambu, Nei Soru, traditional sides — prepared from scratch, just for your table.
+                Pre-book an authentic traditional feast served on fresh banana leaves. Enjoy Biryani, Chicken Roast, Egg, and Veg sides — prepared fresh, just for your table.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '36px', justifyContent: 'center' }}>
                 {[
-                  { tag: 'Mutton Kuzhambu', icon: <Beef size={14} /> },
-                  { tag: 'Nei Soru', icon: <Soup size={14} /> },
-                  { tag: 'Fish Curry', icon: <Fish size={14} /> },
-                  { tag: 'Payasam', icon: <Utensils size={14} /> }
+                  { tag: 'Biryani', icon: <Flame size={14} /> },
+                  { tag: 'Chicken Roast', icon: <Drumstick size={14} /> },
+                  { tag: 'Egg & Veg Sides', icon: <Leaf size={14} /> },
+                  { tag: 'Payasam & Sweets', icon: <Utensils size={14} /> },
+                  { tag: 'Ice Cream', icon: <Star size={14} /> }
                 ].map(item => (
                   <span key={item.tag} style={{ 
                     backgroundColor: 'rgba(255,255,255,0.1)', 
@@ -402,15 +403,15 @@ const Home = () => {
                  <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', padding: '24px', borderRadius: '16px', backgroundColor: 'var(--color-warm-sand)' }}>
                    <MapPin color="var(--color-primary-green)" size={32} />
                    <div>
-                     <h3 style={{ color: 'var(--color-dark-green)', margin: '0 0 8px 0' }}>Anna Nagar Branch</h3>
-                     <p style={{ color: 'var(--color-text-light)', margin: 0 }}>Sathamangalam (Near Ambiga Cinemas), <br/>Anna Nagar, Madurai.</p>
+                     <h3 style={{ color: 'var(--color-dark-green)', margin: '0 0 8px 0' }}>Main Branch</h3>
+                     <p style={{ color: 'var(--color-text-light)', margin: 0 }}>12, Lady Doak College Rd, <br/>Chinna Chokikulam, Madurai 625002.</p>
                    </div>
                  </div>
                  <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', padding: '24px', borderRadius: '16px', backgroundColor: 'var(--color-warm-sand)' }}>
                    <MapPin color="var(--color-secondary-green)" size={32} />
                    <div>
-                     <h3 style={{ color: 'var(--color-dark-green)', margin: '0 0 8px 0' }}>KK Nagar Branch</h3>
-                     <p style={{ color: 'var(--color-text-light)', margin: 0 }}>KK Nagar Area, <br/>A Local Culinary Hub.</p>
+                     <h3 style={{ color: 'var(--color-dark-green)', margin: '0 0 8px 0' }}>Anna Nagar Branch</h3>
+                     <p style={{ color: 'var(--color-text-light)', margin: 0 }}>No:187, 80 Feet Rd, opp. DD Designs, <br/>Near Ambiga Cinemas, Anna Nagar, <br/>Sathamangalam 625020.</p>
                    </div>
                  </div>
               </div>
@@ -453,11 +454,11 @@ const Home = () => {
                 <MapPin size={32} color="var(--color-primary-green)" style={{ flexShrink: 0 }} />
                 <div>
                   <h3 style={{ marginBottom: '8px', color: 'var(--color-dark-green)' }}>Our Branches</h3>
-                  <p style={{ color: 'var(--color-earth-brown)', marginBottom: '12px' }}>
-                    <strong>Anna Nagar:</strong> Sathamangalam (Near Ambiga Cinemas), Madurai.
+                  <p style={{ color: 'var(--color-earth-brown)', marginBottom: '12px', fontSize: '0.9rem' }}>
+                    <strong>Main Branch:</strong> 12, Lady Doak College Rd, Chinna Chokikulam, Madurai, Tamil Nadu 625002.
                   </p>
-                  <p style={{ color: 'var(--color-earth-brown)' }}>
-                    <strong>KK Nagar:</strong> KK Nagar Area, Madurai.
+                  <p style={{ color: 'var(--color-earth-brown)', fontSize: '0.9rem' }}>
+                    <strong>Anna Nagar:</strong> No:187, 80 Feet Rd, opp. DD Designs, Near Ambiga Cinemas, Anna Nagar, Sathamangalam, Tamil Nadu 625020.
                   </p>
                 </div>
               </div>
@@ -466,7 +467,9 @@ const Home = () => {
                 <Phone size={32} color="var(--color-gold-accent)" style={{ flexShrink: 0 }} />
                 <div>
                   <h3 style={{ marginBottom: '8px', color: 'var(--color-dark-green)' }}>Phone Number</h3>
-                  <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-earth-brown)' }}>084898 22822</p>
+                  <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-earth-brown)' }}>
+                    <a href="tel:9367757775" style={{ color: 'inherit', textDecoration: 'none' }}>93677 57775</a>
+                  </p>
                   <p style={{ fontSize: '0.9rem', marginTop: '4px', color: 'var(--color-secondary-green)' }}>Call us or message on WhatsApp instantly.</p>
                 </div>
               </div>

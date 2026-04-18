@@ -46,19 +46,27 @@ const Footer = () => {
           <h4 style={{ color: 'var(--color-gold-accent)', fontSize: '1.25rem', fontWeight: 700 }}>Contact Details</h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-              <MapPin size={20} color="var(--color-banana-leaf)" />
+              <MapPin size={20} color="var(--color-banana-leaf)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <div>
-                <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>Anna Nagar (Near Ambiga Cinemas), Madurai.</p>
-                <p style={{ color: 'rgba(255,255,255,0.8)', margin: '8px 0 0 0' }}>KK Nagar Area, Madurai.</p>
+                <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0, fontSize: '0.9rem', marginBottom: '8px' }}>
+                  <strong>Main Branch:</strong> 12, Lady Doak College Rd, Chinna Chokikulam, Madurai, Tamil Nadu 625002.
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0, fontSize: '0.9rem' }}>
+                  <strong>Anna Nagar:</strong> No:187, 80 Feet Rd, opp. DD Designs, Near Ambiga Cinemas, Anna Nagar, Sathamangalam, Tamil Nadu 625020.
+                </p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <Phone size={20} color="var(--color-banana-leaf)" />
-              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>084898 22822</p>
+              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>
+                <a href="tel:9367757775" style={{ color: 'inherit', textDecoration: 'none' }}>93677 57775</a>
+              </p>
             </div>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <Mail size={20} color="var(--color-banana-leaf)" />
-              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>contact@waalai.com</p>
+              <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0 }}>
+                <a href="mailto:waalaifamilycaterers@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>waalaifamilycaterers@gmail.com</a>
+              </p>
             </div>
           </div>
         </div>

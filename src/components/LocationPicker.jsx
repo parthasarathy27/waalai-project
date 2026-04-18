@@ -19,8 +19,8 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 // Branch locations in Madurai
 const BRANCHES = [
-  { name: 'Anna Nagar', coords: [9.9247, 78.1383] },
-  { name: 'KK Nagar', coords: [9.9234, 78.1524] }
+  { name: 'Main Branch (Chokikulam)', coords: [9.9333, 78.1333] },
+  { name: 'Anna Nagar', coords: [9.9247, 78.1383] }
 ];
 
 // Component to handle map center changes
