@@ -418,18 +418,18 @@ const Home = () => {
             </div>
 
             {/* Catering */}
-            <div className="mobile-small-padding" style={{ backgroundColor: 'var(--color-dark-green)', padding: '50px', borderRadius: '30px', color: 'white', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}><ChefHat size={200} /></div>
-              <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'white' }}>Planning an Event?</h3>
-              <p style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'white', fontWeight: 500, lineHeight: 1.6 }}>
-                Experience our professional 5-star catering service. We bring the authentic <WaalaiText white /> taste to your weddings, corporate meetings, and family gatherings.
+            <div className="mobile-small-padding" style={{ backgroundColor: 'white', border: '3px solid var(--color-primary-green)', padding: '47px', borderRadius: '30px', color: 'var(--color-dark-green)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.05 }}><ChefHat size={150} /></div>
+              <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'var(--color-dark-green)' }}>Planning an Event?</h3>
+              <p style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'var(--color-earth-brown)', fontWeight: 500, lineHeight: 1.6 }}>
+                Experience our professional 5-star catering service. We bring the authentic <WaalaiText /> taste to your weddings, corporate meetings, and family gatherings.
               </p>
               <button 
                 className="btn btn-primary" 
                 onClick={() => navigate('/catering')}
-                style={{ backgroundColor: 'var(--color-gold-accent)', color: 'var(--color-earth-brown)', border: 'none', width: '100%', padding: '20px', fontSize: '1.1rem', fontWeight: 800 }}
+                style={{ backgroundColor: 'var(--color-primary-green)', color: 'white', border: 'none', width: '100%', padding: '20px', fontSize: '1.1rem', fontWeight: 800, borderRadius: '50px' }}
               >
-                Inquire for Catering Services <ChevronRight style={{ marginLeft: '10px' }} />
+                Enquire for Catering Services <ChevronRight style={{ marginLeft: '10px' }} />
               </button>
             </div>
           </div>
