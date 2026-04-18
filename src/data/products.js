@@ -1,7 +1,7 @@
 import nonVegBiryaniImg from '../assets/productlist/non-veg-briyani.png';
 import vegBiryaniImg from '../assets/productlist/veg-briyani.png';
 
-export const categories = ["All", "1KG Non-Veg", "1KG Veg", "1KG Biryani", "Pathiya Sapadu"];
+export const categories = ["All", "1KG Non-Veg", "1KG Veg", "1KG Biryani", "Pathiya Sapadu", "Medical Advice Menu"];
 
 export const products = [
   // 1KG Non-Veg
@@ -355,5 +355,155 @@ export const products = [
     isVeg: true,
     image: "https://images.unsplash.com/photo-1589302168068-964664d93cb0?q=80&w=600&auto=format&fit=crop",
     isWeightBased: false
+  },
+  // Medical Advice Menu
+  {
+    id: 31,
+    name: "Kepa Kachi (Ragi Malt)",
+    tamilName: "கேழ்வரகு கஞ்சி",
+    description: "Nutritious and cooling ragi (finger millet) porridge, excellent for digestive health.",
+    price: 60,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1605522469906-ea4eaffbf62b?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.8,
+    reviews: 156
+  },
+  {
+    id: 32,
+    name: "Veg Salads",
+    tamilName: "காய்கறி சாலட்",
+    description: "Freshly chopped seasonal vegetables with a light, healthy dressing.",
+    price: 90,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.6,
+    reviews: 89
+  },
+  {
+    id: 33,
+    name: "Non-Veg Salad & Soups",
+    tamilName: "அசைவ சாலட் & சூப்",
+    description: "Protein-rich boiled chicken/mutton strips tossed with greens and clear bone broth.",
+    price: 150,
+    category: "Medical Advice Menu",
+    isVeg: false,
+    image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.9,
+    reviews: 212
+  },
+  {
+    id: 34,
+    name: "Variety Rice (Diet Portions)",
+    tamilName: "கலவை சாதம்",
+    description: "Lemon, Curry Leaf, or Mint rice made with minimal oil, packed with antioxidants.",
+    price: 80,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1604152135912-04a022e23696?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.5,
+    reviews: 145
+  },
+  {
+    id: 35,
+    name: "Healthy Upuma",
+    tamilName: "உப்புமா",
+    description: "Light and fluffy wheat or millet upuma served with mild vegetable stew.",
+    price: 70,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1614707328994-b258529da143?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.4,
+    reviews: 98
+  },
+  {
+    id: 36,
+    name: "Medicinal Rasam",
+    tamilName: "ரசம்",
+    description: "Pepper, cumin, and garlic infused clear herbal soup to boost immunity.",
+    price: 50,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.9,
+    reviews: 320
+  },
+  {
+    id: 37,
+    name: "Rice Kanchi",
+    tamilName: "அரிசி கஞ்சி",
+    description: "Soft cooked traditional medicinal rice gruel, easy to digest for convalescence.",
+    price: 60,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.7,
+    reviews: 167
+  },
+  {
+    id: 38,
+    name: "Boiled Chicken",
+    tamilName: "வேகவைத்த சிக்கன்",
+    description: "Lean, protein-rich farm chicken boiled with turmeric and mild pepper.",
+    price: 180,
+    category: "Medical Advice Menu",
+    isVeg: false,
+    image: "https://images.unsplash.com/photo-1599321955726-e04842669811?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.6,
+    reviews: 110
+  },
+  {
+    id: 39,
+    name: "Boiled Fish",
+    tamilName: "வேகவைத்த மீன்",
+    description: "Fresh catch gently poached with ginger and mild spices. Rich in Omega-3.",
+    price: 220,
+    category: "Medical Advice Menu",
+    isVeg: false,
+    image: "https://images.unsplash.com/photo-1511421272635-48ff62459b78?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.8,
+    reviews: 85
+  },
+  {
+    id: 40,
+    name: "Chapathi Roll",
+    tamilName: "சப்பாத்தி ரோல்",
+    description: "Whole wheat chapathi wraps filled with fresh greens and steamed paneer/chicken.",
+    price: 90,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    canChooseType: true,
+    typeOptions: ['Veg Roll', 'Chicken Roll'],
+    typePrices: {
+      'Veg Roll': 90,
+      'Chicken Roll': 120
+    },
+    rating: 4.5,
+    reviews: 205
+  },
+  {
+    id: 41,
+    name: "Soft Idly",
+    tamilName: "இட்லி",
+    description: "Easily digestible, ultra-soft steamed rice cakes served with mild coconut chutney.",
+    price: 40,
+    category: "Medical Advice Menu",
+    isVeg: true,
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop",
+    isWeightBased: false,
+    rating: 4.9,
+    reviews: 450
   }
 ];

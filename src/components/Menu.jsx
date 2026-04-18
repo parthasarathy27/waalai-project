@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { products, categories } from '../data/products';
-import { Plus, Leaf } from 'lucide-react';
+import { Plus, Leaf, Star } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,6 +148,15 @@ const Menu = ({ onAddToCart, typeFilter }) => {
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '6px', color: 'var(--color-dark-green)', lineHeight: 1.2 }}>{product.name}</h3>
                   
+                  {/* Rating Block */}
+                  {product.rating && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '10px' }}>
+                      <Star size={16} fill="#fca311" color="#fca311" />
+                      <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--color-dark-green)' }}>{product.rating}</span>
+                      <span style={{ fontSize: '0.85rem', color: 'var(--color-text-light)', marginLeft: '4px' }}>({product.reviews} reviews)</span>
+                    </div>
+                  )}
+
                   {/* Tamil Name in Leaf Format */}
                   {product.tamilName && (
                     <div style={{ marginBottom: '12px' }}>
