@@ -7,6 +7,7 @@ import banner1 from '../assets/banners/banner1.jpg';
 import bannerimg1 from '../assets/banners/bannerimg1.png';
 import bannerimg2 from '../assets/banners/bannerimg2.png';
 import bannerimg3 from '../assets/banners/bannerimg3.png';
+import aaharLogo from '../assets/ahawaalai.png';
 import { 
   Leaf, 
   Sparkles, 
@@ -236,51 +237,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 3: CULINARY SPECTRUM */}
-      <section ref={addToRefs} className="section-padding" style={{ backgroundColor: 'var(--color-dark-green)', color: 'white' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ color: 'white', fontSize: '2.5rem' }}>The Authentic Spectrum</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem' }}>Experience the finest Traditional and Authentic culinary heritage in a cozy boutique layout.</p>
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-            {[
-              { type: "Signature Dishes", desc: "Bold, spicy, and authentic Tamil flavors.", icon: <UtensilsCrossed size={48} /> },
-              { type: "Heritage Recipes", desc: "Time-honored cooking methods for pure, natural taste.", icon: <Flame size={48} /> },
-              { type: "Traditional Staples", desc: "Rooted in wholesome grains and royal dining heritage.", icon: <Crown size={48} /> }
-            ].map((item, idx) => (
-              <div key={idx} style={{ 
-                backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '20px', overflow: 'hidden', 
-                border: '1px solid rgba(255,255,255,0.1)', transition: 'transform 0.3s ease',
-                textAlign: 'center', padding: '48px 24px',
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{ 
-                  width: '90px', height: '90px', borderRadius: '50%', margin: '0 auto 24px',
-                  backgroundColor: 'rgba(124, 179, 66, 0.15)', border: '2px solid rgba(124, 179, 66, 0.3)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--color-banana-leaf)',
-                }}>
-                  {item.icon}
-                </div>
-                <h3 style={{ color: 'var(--color-banana-leaf)', marginBottom: '8px' }}>{item.type}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '0' }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECTION 3 REMOVED PER USER REQUEST */}
 
       {/* SECTION 4: WAALAI CARE (SPECIAL OFFER) */}
       <section ref={addToRefs} className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <HeartHandshake size={64} color="var(--color-primary-green)" style={{ margin: '0 auto 24px' }} />
-          <h2 style={{ fontSize: '2.8rem', color: 'var(--color-dark-green)', marginBottom: '24px' }}><WaalaiText style={{height: '1em'}}/> Care for Uniquely Gifted Guests</h2>
+          <h2 style={{ fontSize: '2.8rem', color: 'var(--color-dark-green)', marginBottom: '24px' }}><WaalaiText style={{height: '1em'}}/> Care for Special Needs Guests</h2>
           <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 40px', color: 'var(--color-earth-brown)' }}>
-            True hospitality knows no boundaries. We are proud to offer a flat **50% discount** daily on all dine-in meals for our uniquely gifted guests (தனித்திறன் படைத்தவர்கள்).
+            True hospitality knows no boundaries. We are proud to offer a flat **50% discount** daily on all dine-in meals for our special needs guests (சிறப்பு தேவையுடையோர்).
           </p>
           <div style={{ 
             display: 'inline-block', padding: '24px 48px', backgroundColor: 'var(--color-primary-green)', 
@@ -316,7 +281,7 @@ const Home = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                    <UtensilsCrossed size={40} /> மகிழ் விருந்து
                 </div>
-                <span style={{ color: 'var(--color-banana-leaf)', fontSize: '0.7em' }}>Magil Virundhu</span>
+                <span style={{ color: 'var(--color-banana-leaf)', fontSize: '0.7em' }}>The Happy Feast</span>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 Pre-book an authentic traditional feast served on fresh banana leaves. Enjoy Biryani, Chicken Roast, Egg, and Veg sides — prepared fresh, just for your table.
@@ -353,7 +318,7 @@ const Home = () => {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 36px rgba(255,193,7,0.45)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(255,193,7,0.35)'; }}
               >
-                <UtensilsCrossed size={20} /> Book Magil Virundhu <ChevronRight size={20} />
+                <UtensilsCrossed size={20} /> Book Happy Feast <ChevronRight size={20} />
               </button>
             </div>
         </div>
@@ -395,11 +360,11 @@ const Home = () => {
       {/* SECTION 6: BRANCH LOCATIONS & CATERING INQUIRY */}
       <section ref={addToRefs} className="section-padding" style={{ backgroundColor: 'white' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px' }}>
              {/* Locations */}
             <div>
-              <h2 style={{ color: 'var(--color-dark-green)', fontSize: '2.5rem', marginBottom: '32px' }}>Visit Our Outlets</h2>
-              <div style={{ display: 'grid', gap: '32px' }}>
+              <h2 style={{ color: 'var(--color-dark-green)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '24px' }}>Visit Our Outlets</h2>
+              <div style={{ display: 'grid', gap: '20px' }}>
                  <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start', padding: '24px', borderRadius: '16px', backgroundColor: 'var(--color-warm-sand)' }}>
                    <MapPin color="var(--color-primary-green)" size={32} />
                    <div>
@@ -418,16 +383,16 @@ const Home = () => {
             </div>
 
             {/* Catering */}
-            <div className="mobile-small-padding" style={{ backgroundColor: 'white', border: '3px solid var(--color-primary-green)', padding: '47px', borderRadius: '30px', color: 'var(--color-dark-green)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ backgroundColor: 'white', border: '3px solid var(--color-primary-green)', padding: 'clamp(20px, 4vw, 40px)', borderRadius: '24px', color: 'var(--color-dark-green)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.05 }}><ChefHat size={150} /></div>
-              <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'var(--color-dark-green)' }}>Planning an Event?</h3>
-              <p style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'var(--color-earth-brown)', fontWeight: 500, lineHeight: 1.6 }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', marginBottom: '16px', color: 'var(--color-dark-green)' }}>Planning an Event?</h3>
+              <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', marginBottom: '32px', color: 'var(--color-earth-brown)', fontWeight: 500, lineHeight: 1.6 }}>
                 Experience our professional 5-star catering service. We bring the authentic <WaalaiText /> taste to your weddings, corporate meetings, and family gatherings.
               </p>
               <button 
                 className="btn btn-primary" 
                 onClick={() => navigate('/catering')}
-                style={{ backgroundColor: 'var(--color-primary-green)', color: 'white', border: 'none', width: '100%', padding: '20px', fontSize: '1.1rem', fontWeight: 800, borderRadius: '50px' }}
+                style={{ backgroundColor: 'var(--color-primary-green)', color: 'white', border: 'none', width: '100%', padding: '16px 20px', fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', fontWeight: 800, borderRadius: '50px' }}
               >
                 Enquire for Catering Services <ChevronRight style={{ marginLeft: '10px' }} />
               </button>
@@ -495,6 +460,76 @@ const Home = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Waalai Mess Location"
               ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8: WAALAI AAHAR PROMO */}
+      <section ref={addToRefs} className="section-padding" style={{ backgroundColor: 'var(--color-bg-light)' }}>
+        <div className="container">
+          <div style={{
+            backgroundColor: '#ffffff',
+            border: '4px solid var(--color-primary-green)',
+            borderRadius: '32px',
+            padding: '60px 40px',
+            position: 'relative',
+            overflow: 'hidden',
+            boxShadow: '0 25px 50px rgba(87, 182, 5, 0.15)', // Green shadow
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: '40px'
+          }}>
+            {/* Decors */}
+            <div style={{ position: 'absolute', top: '-10%', right: '-5%', opacity: 0.05 }}><Flame size={300} color="var(--color-gold-accent)" /></div>
+            
+            <div style={{ flex: '1 1 500px', zIndex: 1 }}>
+              <span style={{ display: 'inline-block', padding: '8px 20px', backgroundColor: 'var(--color-primary-green)', color: 'white', borderRadius: '50px', fontSize: '0.9rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '24px', boxShadow: '0 8px 20px rgba(87, 182, 5, 0.3)' }}>
+                Exclusive to Anna Nagar Branch
+              </span>
+              
+              <div style={{ marginBottom: '24px' }}>
+                <img src={aaharLogo} alt="Waalai Aahar" style={{ maxWidth: '300px', width: '100%', height: 'auto', dropShadow: '0 4px 6px rgba(0,0,0,0.1)' }} />
+              </div>
+              
+              <p style={{ color: 'var(--color-earth-brown)', fontSize: '1.25rem', lineHeight: 1.6, marginBottom: '32px', maxWidth: '600px', fontWeight: 500 }}>
+                A premium dining experience featuring authentic Chinese culinary art and rich Indian delicacies. Crafted with the signature Waalai commitment to purity, authentic traditions, and spectacular flavors.
+              </p>
+              
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                <div style={{ padding: '12px 24px', borderRadius: '16px', backgroundColor: 'var(--color-warm-sand)', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-dark-green)', fontWeight: 700, border: '1px solid rgba(0,0,0,0.05)' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(245, 127, 23, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Soup size={20} color="var(--color-gold-accent)" />
+                  </div>
+                  Authentic Chinese
+                </div>
+                <div style={{ padding: '12px 24px', borderRadius: '16px', backgroundColor: 'var(--color-warm-sand)', display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-dark-green)', fontWeight: 700, border: '1px solid rgba(0,0,0,0.05)' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(245, 127, 23, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Crown size={20} color="var(--color-gold-accent)" />
+                  </div>
+                  Premium North Indian
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side illustration or map pin focus */}
+            <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
+              <div style={{ 
+                width: '100%', maxWidth: '350px', backgroundColor: 'var(--color-warm-sand)', 
+                border: '1px solid rgba(0,0,0,0.05)',
+                borderRadius: '24px', padding: '40px 32px', textAlign: 'center',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.08)'
+              }}>
+                <MapPin size={54} color="var(--color-primary-green)" style={{ margin: '0 auto 20px' }} />
+                <h3 style={{ color: 'var(--color-dark-green)', marginBottom: '12px', fontSize: '1.8rem' }}>Anna Nagar</h3>
+                <p style={{ color: 'var(--color-earth-brown)', fontSize: '1rem', marginBottom: '32px', lineHeight: 1.6 }}>
+                  No:187, 80 Feet Rd, opp. DD Designs, Near Ambiga Cinemas, Sathamangalam 625020.
+                </p>
+                <a href="#contact" style={{ display: 'inline-block', backgroundColor: 'var(--color-gold-accent)', color: 'white', textDecoration: 'none', padding: '16px 32px', borderRadius: '50px', fontWeight: 800, fontSize: '1rem', transition: 'all 0.3s ease', boxShadow: '0 8px 20px rgba(245, 127, 23, 0.4)' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>

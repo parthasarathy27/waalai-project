@@ -9,7 +9,7 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Order Online', path: '/order' },
-    { name: 'Magil Virundhu', path: '/magil-virundhu', icon: <UtensilsCrossed size={18} style={{ marginRight: '8px' }} /> },
+    { name: 'Happy Feast', path: '/magil-virundhu', icon: <UtensilsCrossed size={18} style={{ marginRight: '8px' }} /> },
     { name: 'Catering', path: '/catering' },
   ];
 

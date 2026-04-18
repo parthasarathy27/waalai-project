@@ -34,7 +34,7 @@ const Footer = () => {
             <Link to="/order" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Online Order</Link>
             <Link to="/order?type=pathiya" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Pathiya Sapadu (Dietary)</Link>
             <Link to="/magil-virundhu" style={{ color: 'white', textDecoration: 'none', opacity: 0.8, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <UtensilsCrossed size={16} /> Magil Virundhu
+              <UtensilsCrossed size={16} /> Happy Feast
             </Link>
             <Link to="/catering" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Catering Services</Link>
             <a href="/#contact" style={{ color: 'white', textDecoration: 'none', opacity: 0.8 }}>Contact Us</a>

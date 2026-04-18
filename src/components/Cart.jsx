@@ -57,7 +57,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
       message += `*Address:* ${address}\n`;
       message += `*Distance:* ${distance} km\n\n`;
     } else {
-      message = `*🍛 New Magil Virundhu Booking - Waalai Mess 🍛*\n`;
+      message = `*🍛 New Happy Feast Booking - Waalai Mess 🍛*\n`;
       message += `_மகிழ் விருந்து - Traditional Feast Reservation_\n\n`;
       message += `*Customer:* ${customerName}\n`;
       message += `*Number of Guests:* ${guests}\n`;
@@ -96,7 +96,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
     message += `- Minimum order starts from 1 KG per dish.\n\n`;
 
     if (orderType === 'dinein') {
-      message += `*⚠️ Note:* I understand that Magil Virundhu (மகிழ் விருந்து) bookings must be made at least *one day* in advance.\n\n`;
+      message += `*⚠️ Note:* I understand that Happy Feast (மகிழ் விருந்து) bookings must be made at least *one day* in advance.\n\n`;
     }
 
     message += `Please confirm my healthy order! 🙏`;
@@ -306,7 +306,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                 }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  <UtensilsCrossed size={18} /> Magil Virundhu
+                  <UtensilsCrossed size={18} /> Happy Feast
                 </span>
               </button>
             </div>
@@ -374,7 +374,7 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
                     <input type="number" className="input-field" placeholder="Eg. 4" value={guests} onChange={e => setGuests(e.target.value)} min="1" style={{ border: '1px solid var(--color-primary-green)' }} required />
                   </div>
                   <p style={{ fontSize: '0.85rem', color: '#856404', backgroundColor: 'rgba(255,193,7,0.1)', padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,193,7,0.3)' }}>
-                    <UtensilsCrossed size={16} style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>Magil Virundhu (மகிழ் விருந்து):</strong> This traditional feast booking must be placed at least <strong>one day in advance</strong> for authentic fresh preparation on banana leaves. Rooted in the ancient Tamil wisdom of "Unave Marundhu", we serve authentic, 100% natural, and traditional food on traditional banana leaves.
+                    <UtensilsCrossed size={16} style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>Happy Feast (மகிழ் விருந்து):</strong> This traditional feast booking must be placed at least <strong>one day in advance</strong> for authentic fresh preparation on banana leaves. Rooted in the ancient Tamil wisdom of "Unave Marundhu", we serve authentic, 100% natural, and traditional food on traditional banana leaves.
                   </p>
                 </div>
               )}
@@ -412,10 +412,10 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateCartItem, onRemoveCartItem, 
       <SuccessOverlay 
         isOpen={showSuccess} 
         onClose={handleCloseAll} 
-        title={orderType === 'delivery' ? "Order Placed!" : "Magil Virundhu Booked!"}
+        title={orderType === 'delivery' ? "Order Placed!" : "Happy Feast Booked!"}
         message={orderType === 'delivery' 
           ? <>Your healthy <WaalaiText /> meal is being prepared with care. Check WhatsApp for confirmation!</>
-          : "Your Magil Virundhu (மகிழ் விருந்து) feast is reserved! We will confirm your booking shortly via WhatsApp."}
+          : "Your Happy Feast (மகிழ் விருந்து) feast is reserved! We will confirm your booking shortly via WhatsApp."}
       />
 
       <LocationPicker 

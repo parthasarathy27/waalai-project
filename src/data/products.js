@@ -1,3 +1,6 @@
+import nonVegBiryaniImg from '../assets/productlist/non-veg-briyani.png';
+import vegBiryaniImg from '../assets/productlist/veg-briyani.png';
+
 export const categories = ["All", "1KG Non-Veg", "1KG Veg", "1KG Biryani", "Pathiya Sapadu"];
 
 export const products = [
@@ -287,7 +290,7 @@ export const products = [
     },
     category: "1KG Biryani",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop",
+    image: nonVegBiryaniImg,
     isWeightBased: true,
     canChooseType: true,
     typeOptions: ['Chicken Biryani', 'Mutton Biryani', 'Chicken Fried Rice']
@@ -300,7 +303,7 @@ export const products = [
     price: 880,
     category: "1KG Biryani",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1589302168068-964664d93cb0?q=80&w=600&auto=format&fit=crop",
+    image: vegBiryaniImg,
     isWeightBased: true,
     canChooseType: true,
     typeOptions: ['Mushroom', 'Veg']
