@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import waalaiWhiteText from '../assets/waalai-white.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,10 +72,25 @@ const Hero = () => {
           color: 'white', 
           marginBottom: '24px', 
           textShadow: '0 4px 20px rgba(0,0,0,0.5)',
-          lineHeight: 1.1
+          lineHeight: 1.1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}>
-          Authentic Taste of <br/>
-          <span style={{ color: 'var(--color-primary-green)' }}>Waalai</span> Mess
+          <span style={{ marginBottom: '10px' }}>Authentic Taste of</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <img 
+              src={waalaiWhiteText} 
+              alt="Waalai" 
+              className="waalai-text-img" 
+              style={{ 
+                height: '110px', 
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.3))'
+              }} 
+            />
+            <span style={{ paddingTop: '10px' }}>Mess</span>
+          </span>
         </h1>
         <p className="hero-subtitle hero-responsive-subtitle" style={{ 
           color: '#f8fafc', 
@@ -114,6 +130,9 @@ const Hero = () => {
           .hero-btn {
             padding: 12px 32px !important;
             font-size: 1rem !important;
+          }
+          .waalai-text-img {
+            height: 70px !important;
           }
         }
       `}</style>

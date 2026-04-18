@@ -38,8 +38,8 @@ const slides = [
     featuredImage: bannerimg1,
     subtitle: "ESTABLISHED 1931",
     titlePrimary: "Experience the",
-    titleHighlight: <><WaalaiText /> Heritage</>,
-    description: <><WaalaiText /> Mess & <WaalaiText /> Aahar. Recognized for its authentic and traditional home-style flavors since 1931.</>,
+    titleHighlight: <><WaalaiText white scale={1.6} /> Heritage</>,
+    description: <><WaalaiText white scale={1.3} /> Mess & <WaalaiText white scale={1.3} /> Aahar. Recognized for its authentic and traditional home-style flavors since 1931.</>,
     actionText: "Order Non-Veg",
     actionLink: "/order?type=nonveg"
   },
@@ -421,7 +421,7 @@ const Home = () => {
               <div style={{ position: 'absolute', top: '-20px', right: '-20px', opacity: 0.05 }}><ChefHat size={200} /></div>
               <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'white' }}>Planning an Event?</h3>
               <p style={{ fontSize: '1.2rem', marginBottom: '40px', color: 'white', fontWeight: 500, lineHeight: 1.6 }}>
-                Experience our professional 5-star catering service. We bring the authentic <WaalaiText /> taste to your weddings, corporate meetings, and family gatherings.
+                Experience our professional 5-star catering service. We bring the authentic <WaalaiText white /> taste to your weddings, corporate meetings, and family gatherings.
               </p>
               <button 
                 className="btn btn-primary" 

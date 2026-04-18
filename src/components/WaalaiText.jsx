@@ -1,14 +1,17 @@
 import React from 'react';
-import textLogoUrl from '../assets/waalai_text.png';
+import textLogoDarkUrl from '../assets/waalai_text.png';
+import textLogoWhiteUrl from '../assets/waalai-white.png';
 
-const WaalaiText = ({ style = {}, className = "" }) => {
+const WaalaiText = ({ style = {}, className = "", white = false, scale = 1.4 }) => {
+  const imgSrc = white ? textLogoWhiteUrl : textLogoDarkUrl;
+  
   return (
     <img 
-      src={textLogoUrl} 
+      src={imgSrc} 
       alt="Waalai" 
       className={className}
       style={{ 
-        height: '1.2em', // Scale relative to surrounding text size
+        height: `${1.2 * scale}em`, // Scale relative to surrounding text size
         verticalAlign: 'bottom', // Align with baseline
         transform: 'translateY(-0.1em)', // Fine-tune vertical positioning
         objectFit: 'contain',
@@ -20,3 +23,4 @@ const WaalaiText = ({ style = {}, className = "" }) => {
 };
 
 export default WaalaiText;
+
