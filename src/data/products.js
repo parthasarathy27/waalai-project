@@ -1,6 +1,52 @@
 import nonVegBiryaniImg from '../assets/productlist/non-veg-briyani.png';
 import vegBiryaniImg from '../assets/productlist/veg-briyani.png';
 
+// 1KG Non-Veg Images
+import muttonGravyImg from '../assets/images/1kg_Nonveg/1kg Mutton Gravy.jpg';
+import muttonKothuImg from '../assets/images/1kg_Nonveg/1kg Mutton Kothu Curry1.jpg';
+import liverKuzhambuImg from '../assets/images/1kg_Nonveg/1kg Liver Kuzhambu.jpg';
+import boneNalliImg from '../assets/images/1kg_Nonveg/1kg Bone nalli Kuzhambu.png';
+import brainKuzhambuImg from '../assets/images/1kg_Nonveg/1kg Brain Kuzhambu.png';
+import aattukalPayaImg from '../assets/images/1kg_Nonveg/1kg Aattukal Paya.png';
+import boneKuzhambuImg from '../assets/images/1kg_Nonveg/1kg Bone Kuzhambu.png';
+import chickenKuzhambuImg from '../assets/images/1kg_Nonveg/1kg Chicken Kuzhambu.png';
+import chickenKothuImg from '../assets/images/1kg_Nonveg/1kg Chicken Kothu Curry.jpg';
+import nattuKozhiImg from '../assets/images/1kg_Nonveg/1kg Nattu Kozhi Kuzhambu.jpg';
+import neiMeenImg from '../assets/images/1kg_Nonveg/1kg Nei Meen Kuzhambu.jpg';
+import seasonalFishImg from '../assets/images/1kg_Nonveg/1kg Seasonal Fish Curry.jpg';
+import prawnCurryImg from '../assets/images/1kg_Nonveg/1kg Prawn Curry.jpg';
+import crabCurryImg from '../assets/images/1kg_Nonveg/1kg Crab Curry.jpg';
+import eggKuzhambuImg from '../assets/images/1kg_Nonveg/1kg Egg Kuzhambu.jpg';
+
+// 1KG Veg Images
+import paneerStewImg from '../assets/images/1kg veg/1kg Paneer Stew.png';
+import mushroomKuzhambuImg from '../assets/images/1kg veg/1kg Mushroom Kuzhambu.jpg';
+import garlicKuzhambuImg from '../assets/images/1kg veg/1kg garlic kuzhambu.jpg';
+import vathalKuzhambuImg from '../assets/images/1kg veg/1kg Vathal Kuzhambu.jpg';
+import tomatoKuzhambuImg from '../assets/images/1kg veg/1kg Tomato Kuzhambu.jpg';
+import brinjalKuzhambuImg from '../assets/images/1kg veg/1kg Brinjal Kuzhambu.jpeg';
+import vegKhurumaImg from '../assets/images/1kg veg/1kg Veg Khuruma.jpeg';
+import sambarImg from '../assets/images/1kg veg/1kg Sambar.jpg';
+
+// Medical Advice Menu Images
+import ragiMaltImg from '../assets/images/medicaladvicemenu/Kepa Kachi (Ragi Malt).jpeg';
+import vegSaladsImg from '../assets/images/medicaladvicemenu/Veg Salads.jpeg';
+import nonVegSaladImg from '../assets/images/medicaladvicemenu/Non-Veg Salad & Soups.jpg';
+import dietVarietyRiceImg from '../assets/images/medicaladvicemenu/Variety Rice (Diet Portions).jpg';
+import healthyUpumaImg from '../assets/images/medicaladvicemenu/Healthy Upuma.jpeg';
+import medicinalRasamImg from '../assets/images/medicaladvicemenu/Medicinal Rasam.jpg';
+import riceKanchiImg from '../assets/images/medicaladvicemenu/Rice Kanchi.jpeg';
+import boiledChickenImg from '../assets/images/medicaladvicemenu/Boiled Chicken.jpg';
+import boiledFishImg from '../assets/images/medicaladvicemenu/Boiled Fish.jpeg';
+import chapathiRollImg from '../assets/images/medicaladvicemenu/Chapathi Roll.jpg';
+
+// Pathiya Sapadu Images
+import traditionalPathiyaImg from '../assets/images/pathiyasapadu/Traditional Pathiya Sapadu.jpg';
+import pathiyaTiffinImg from '../assets/images/pathiyasapadu/chapathi,idiyappam.jpeg';
+import pathiyaRiceVegImg from '../assets/images/pathiyasapadu/Rice,Veg,Rasam,Variety Rice.png';
+import pathiyaParottaImg from '../assets/images/pathiyasapadu/Parotta.jpg';
+
+
 export const categories = ["All", "1KG Non-Veg", "1KG Veg", "1KG Biryani", "Pathiya Sapadu", "Medical Advice Menu"];
 
 export const products = [
@@ -13,7 +59,7 @@ export const products = [
     price: 1550,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=600&auto=format&fit=crop",
+    image: muttonGravyImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -25,7 +71,7 @@ export const products = [
     price: 1550,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600&auto=format&fit=crop",
+    image: muttonKothuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -37,7 +83,7 @@ export const products = [
     price: 1550,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=600&auto=format&fit=crop",
+    image: liverKuzhambuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -49,7 +95,7 @@ export const products = [
     price: 1100,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1626777552726-4a6b52c67ad4?q=80&w=600&auto=format&fit=crop",
+    image: boneNalliImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -61,7 +107,7 @@ export const products = [
     price: 990,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=600&auto=format&fit=crop",
+    image: brainKuzhambuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -73,7 +119,7 @@ export const products = [
     price: 880,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1543353301-8e100d8bc07c?q=80&w=600&auto=format&fit=crop",
+    image: aattukalPayaImg,
     canChooseStyle: false,
     isWeightBased: true
   },
@@ -85,7 +131,7 @@ export const products = [
     price: 990,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1604909122744-954388e6a278?q=80&w=600&auto=format&fit=crop",
+    image: boneKuzhambuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -97,7 +143,7 @@ export const products = [
     price: 770,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1603894584145-f11da4ea4020?q=80&w=600&auto=format&fit=crop",
+    image: chickenKuzhambuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -109,7 +155,7 @@ export const products = [
     price: 770,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=600&auto=format&fit=crop",
+    image: chickenKothuImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -121,7 +167,7 @@ export const products = [
     price: 1100,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600&auto=format&fit=crop",
+    image: nattuKozhiImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -133,7 +179,7 @@ export const products = [
     price: 2200,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1597810332824-2c63fdd27e8a?q=80&w=600&auto=format&fit=crop",
+    image: neiMeenImg,
     canChooseStyle: false,
     isWeightBased: true
   },
@@ -145,7 +191,7 @@ export const products = [
     price: 1100,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1579631542720-3a87824fff8a?q=80&w=600&auto=format&fit=crop",
+    image: seasonalFishImg,
     canChooseStyle: false,
     isWeightBased: true
   },
@@ -157,7 +203,7 @@ export const products = [
     price: 1550,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1559842571-0f7f2b5a51fe?q=80&w=600&auto=format&fit=crop",
+    image: prawnCurryImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -169,7 +215,7 @@ export const products = [
     price: 1100,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1627308595171-d1b5d6786a34?q=80&w=600&auto=format&fit=crop",
+    image: crabCurryImg,
     canChooseStyle: true,
     isWeightBased: true
   },
@@ -181,7 +227,7 @@ export const products = [
     price: 660,
     category: "1KG Non-Veg",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1582169505937-b9992bd01ed9?q=80&w=600&auto=format&fit=crop",
+    image: eggKuzhambuImg,
     canChooseStyle: false,
     isWeightBased: true
   },
@@ -195,7 +241,7 @@ export const products = [
     price: 1100,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=600&auto=format&fit=crop",
+    image: paneerStewImg,
     isWeightBased: true
   },
   {
@@ -206,7 +252,7 @@ export const products = [
     price: 900,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1606404983050-9883b27b38d3?q=80&w=600&auto=format&fit=crop",
+    image: mushroomKuzhambuImg,
     isWeightBased: true
   },
   {
@@ -217,7 +263,7 @@ export const products = [
     price: 900,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1603894584145-f11da4ea4020?q=80&w=600&auto=format&fit=crop",
+    image: garlicKuzhambuImg,
     isWeightBased: true
   },
   {
@@ -228,7 +274,7 @@ export const products = [
     price: 330,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: vathalKuzhambuImg,
     isWeightBased: true
   },
   {
@@ -239,7 +285,7 @@ export const products = [
     price: 220,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: tomatoKuzhambuImg,
     isWeightBased: true
   },
   {
@@ -250,7 +296,7 @@ export const products = [
     price: 220,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: brinjalKuzhambuImg,
     isWeightBased: true
   },
   {
@@ -261,7 +307,7 @@ export const products = [
     price: 250,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: vegKhurumaImg,
     isWeightBased: true
   },
   {
@@ -272,7 +318,7 @@ export const products = [
     price: 460,
     category: "1KG Veg",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1605342417726-17b5f10ad9fc?q=80&w=600&auto=format&fit=crop",
+    image: sambarImg,
     isWeightBased: true
   },
 
@@ -316,7 +362,7 @@ export const products = [
     price: 150,
     category: "Pathiya Sapadu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: traditionalPathiyaImg,
     isWeightBased: false
   },
   {
@@ -327,7 +373,7 @@ export const products = [
     price: 15,
     category: "Pathiya Sapadu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop",
+    image: pathiyaTiffinImg,
     isWeightBased: false,
     canChooseType: true,
     typeOptions: ['Idly', 'Chappathi', 'Idiyappam']
@@ -340,7 +386,7 @@ export const products = [
     price: 120,
     category: "Pathiya Sapadu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: pathiyaRiceVegImg,
     isWeightBased: false,
     canChooseType: true,
     typeOptions: ['Plain Rice', 'Variety Rice', 'Rasam Set']
@@ -353,7 +399,7 @@ export const products = [
     price: 20,
     category: "Pathiya Sapadu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1589302168068-964664d93cb0?q=80&w=600&auto=format&fit=crop",
+    image: pathiyaParottaImg,
     isWeightBased: false
   },
   // Medical Advice Menu
@@ -365,7 +411,7 @@ export const products = [
     price: 60,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1605522469906-ea4eaffbf62b?q=80&w=600&auto=format&fit=crop",
+    image: ragiMaltImg,
     isWeightBased: false,
     rating: 4.8,
     reviews: 156
@@ -378,7 +424,7 @@ export const products = [
     price: 90,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop",
+    image: vegSaladsImg,
     isWeightBased: false,
     rating: 4.6,
     reviews: 89
@@ -391,7 +437,7 @@ export const products = [
     price: 150,
     category: "Medical Advice Menu",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=600&auto=format&fit=crop",
+    image: nonVegSaladImg,
     isWeightBased: false,
     rating: 4.9,
     reviews: 212
@@ -404,7 +450,7 @@ export const products = [
     price: 80,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1604152135912-04a022e23696?q=80&w=600&auto=format&fit=crop",
+    image: dietVarietyRiceImg,
     isWeightBased: false,
     rating: 4.5,
     reviews: 145
@@ -417,7 +463,7 @@ export const products = [
     price: 70,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1614707328994-b258529da143?q=80&w=600&auto=format&fit=crop",
+    image: healthyUpumaImg,
     isWeightBased: false,
     rating: 4.4,
     reviews: 98
@@ -430,7 +476,7 @@ export const products = [
     price: 50,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600&auto=format&fit=crop",
+    image: medicinalRasamImg,
     isWeightBased: false,
     rating: 4.9,
     reviews: 320
@@ -443,7 +489,7 @@ export const products = [
     price: 60,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da?q=80&w=600&auto=format&fit=crop",
+    image: riceKanchiImg,
     isWeightBased: false,
     rating: 4.7,
     reviews: 167
@@ -456,7 +502,7 @@ export const products = [
     price: 180,
     category: "Medical Advice Menu",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1599321955726-e04842669811?q=80&w=600&auto=format&fit=crop",
+    image: boiledChickenImg,
     isWeightBased: false,
     rating: 4.6,
     reviews: 110
@@ -469,7 +515,7 @@ export const products = [
     price: 220,
     category: "Medical Advice Menu",
     isVeg: false,
-    image: "https://images.unsplash.com/photo-1511421272635-48ff62459b78?q=80&w=600&auto=format&fit=crop",
+    image: boiledFishImg,
     isWeightBased: false,
     rating: 4.8,
     reviews: 85
@@ -482,7 +528,7 @@ export const products = [
     price: 90,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=600&auto=format&fit=crop",
+    image: chapathiRollImg,
     isWeightBased: false,
     canChooseType: true,
     typeOptions: ['Veg Roll', 'Chicken Roll'],
@@ -501,7 +547,7 @@ export const products = [
     price: 40,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=600&auto=format&fit=crop",
+    image: pathiyaTiffinImg,
     isWeightBased: false,
     rating: 4.9,
     reviews: 450
