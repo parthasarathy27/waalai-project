@@ -162,42 +162,62 @@ const CateringBooking = () => {
     </div>
   );
 
-  const renderListCard = (items, title, badgeColor) => (
-    <div style={{ backgroundColor: 'white', borderRadius: '12px', padding: '20px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', borderTop: `4px solid ${badgeColor}` }}>
-      <h3 style={{ color: badgeColor, marginBottom: '16px', fontSize: '1.2rem', textAlign: 'center' }}>{title}</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '10px' }}>
-        {items.map((itemName, index) => {
-          const isSelected = !!selectedItems[itemName];
-          return (
-            <label 
-              key={index} 
-              style={{ 
-                display: 'flex', alignItems: 'center', fontSize: '0.9rem', color: isSelected ? 'var(--color-dark-green)' : 'var(--color-earth-brown)', 
-                cursor: 'pointer', padding: '8px', borderRadius: '6px', backgroundColor: isSelected ? 'rgba(255, 193, 7, 0.15)' : 'transparent',
-                transition: 'all 0.2s', border: isSelected ? `1px solid ${badgeColor}` : '1px solid transparent'
-              }}
-            >
-              <div 
+  const renderListCard = (items, title, badgeColor) => {
+    let maxAllowed = Infinity;
+    if (title.includes("TWO")) maxAllowed = 2;
+    else if (title.includes("THREE")) maxAllowed = 3;
+    else if (title.includes("FOUR")) maxAllowed = 4;
+
+    const selectedCountInCategory = items.filter(itemName => !!selectedItems[itemName]).length;
+    const isMaxReached = selectedCountInCategory >= maxAllowed;
+
+    return (
+      <div style={{ backgroundColor: 'white', borderRadius: '12px', padding: '20px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', borderTop: `4px solid ${badgeColor}` }}>
+        <h3 style={{ color: badgeColor, marginBottom: '16px', fontSize: '1.2rem', textAlign: 'center' }}>{title}</h3>
+        {isMaxReached && (
+          <p style={{ textAlign: 'center', color: 'var(--color-primary-green)', fontSize: '0.85rem', marginBottom: '16px', fontWeight: 'bold' }}>
+            Maximum selection reached. Deselect an item to see other options.
+          </p>
+        )}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '10px' }}>
+          {items.map((itemName, index) => {
+            const isSelected = !!selectedItems[itemName];
+            if (isMaxReached && !isSelected) return null;
+            
+            return (
+              <label 
+                key={index} 
                 style={{ 
-                  width: '18px', height: '18px', borderRadius: '4px', border: `2px solid ${isSelected ? badgeColor : '#ccc'}`, 
-                  marginRight: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: isSelected ? badgeColor : 'white' 
+                  display: 'flex', alignItems: 'center', fontSize: '0.9rem', color: isSelected ? 'var(--color-dark-green)' : 'var(--color-earth-brown)', 
+                  cursor: 'pointer', padding: '8px', borderRadius: '6px', backgroundColor: isSelected ? 'rgba(255, 193, 7, 0.15)' : 'transparent',
+                  transition: 'all 0.2s', border: isSelected ? `1px solid ${badgeColor}` : '1px solid transparent'
                 }}
               >
-                {isSelected && <Check size={14} color="white" />}
-              </div>
-              <input 
-                type="checkbox" 
-                hidden 
-                checked={isSelected} 
-                onChange={() => handleComboToggle(itemName, title)} 
-              />
-              <span style={{ fontWeight: isSelected ? 600 : 400 }}>{itemName}</span>
-            </label>
-          );
-        })}
+                <div 
+                  style={{ 
+                    width: '18px', height: '18px', borderRadius: '4px', border: `2px solid ${isSelected ? badgeColor : '#ccc'}`, 
+                    marginRight: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: isSelected ? badgeColor : 'white' 
+                  }}
+                >
+                  {isSelected && <Check size={14} color="white" />}
+                </div>
+                <input 
+                  type="checkbox" 
+                  hidden 
+                  checked={isSelected} 
+                  onChange={() => {
+                    if (!isSelected && isMaxReached) return;
+                    handleComboToggle(itemName, title);
+                  }} 
+                />
+                <span style={{ fontWeight: isSelected ? 600 : 400 }}>{itemName}</span>
+              </label>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const renderALaCarteGrid = (data, title) => (
     <div style={{ marginBottom: '24px' }}>
@@ -228,7 +248,7 @@ const CateringBooking = () => {
       <Breadcrumbs pageName="Catering Services" />
       <div className="container" style={{ maxWidth: '1000px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Event Catering & Menus</h1>
+          <h1 style={{ color: 'var(--color-dark-green)', marginBottom: '16px' }}>Event Catering & Menu</h1>
           <p style={{ color: 'var(--color-earth-brown)', fontSize: '1.2rem', marginBottom: '16px', maxWidth: '800px', margin: '0 auto' }}>
             From grand weddings to intimate gatherings, <WaalaiText /> Mess provides premium customized catering solutions. Select your items dynamically below for a fast quote.
           </p>
@@ -240,7 +260,7 @@ const CateringBooking = () => {
           }}>
             <CalendarDays size={24} style={{ color: '#7a5c00', flexShrink: 0 }} />
             <p style={{ margin: 0, fontSize: '0.95rem', color: '#7a5c00', fontWeight: 600, textAlign: 'left' }}>
-              <strong>Advance Booking Required:</strong> All catering orders must be placed at least <strong>1 day before</strong> the event date.
+              <strong>Advance Booking Required:</strong> All catering orders must be placed at least <strong>2 days before</strong> the event date.
             </p>
           </div>
         </div>
@@ -258,7 +278,7 @@ const CateringBooking = () => {
                 boxShadow: activeTab === 'measure' ? '0 4px 15px rgba(46,125,50,0.3)' : 'none'
               }}
             >
-              <Scale size={18} /> Measure Basket
+              <Scale size={18} /> Bulk Feast Selection
             </button>
             <button 
               onClick={() => setActiveTab('basket')}
@@ -270,7 +290,7 @@ const CateringBooking = () => {
                 boxShadow: activeTab === 'basket' ? '0 4px 15px rgba(46,125,50,0.3)' : 'none'
               }}
             >
-              <ShoppingBag size={18} /> Your Basket (Combos)
+              <ShoppingBag size={18} /> Curated Signature Combos
             </button>
             <button 
               onClick={() => setActiveTab('alacarte')}
@@ -282,7 +302,7 @@ const CateringBooking = () => {
                 boxShadow: activeTab === 'alacarte' ? '0 4px 15px rgba(46,125,50,0.3)' : 'none'
               }}
             >
-              <UtensilsCrossed size={18} /> Our Menu
+              <UtensilsCrossed size={18} /> Custom Menu Selection
             </button>
           </div>
 
@@ -299,9 +319,9 @@ const CateringBooking = () => {
             {activeTab === 'basket' && (
               <div className="fade-in">
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                  {renderListCard(yourBasket.anyOne, "ANY ONE (Sweets & Snacks)", "#f59e0b")}
-                  {renderListCard(yourBasket.anyTwo, "ANY TWO (Soups, Starters, Spl Gravies)", "#ef4444")}
-                  {renderListCard(yourBasket.anyThree, "ANY THREE (Main Course, Briyani, Meals)", "#8b5cf6")}
+                  {renderListCard(yourBasket.anyOne, "CHOOSE ANY TWO (Sweets & Snacks)", "#f59e0b")}
+                  {renderListCard(yourBasket.anyTwo, "CHOOSE ANY THREE (Soups, Starters, Spl Gravies)", "#ef4444")}
+                  {renderListCard(yourBasket.anyThree, "CHOOSE ANY FOUR (Main Course, Briyani, Meals)", "#8b5cf6")}
                 </div>
                 <div style={{ marginTop: '20px', padding: '16px', backgroundColor: 'rgba(46, 125, 50, 0.1)', borderRadius: '8px', borderLeft: '4px solid var(--color-primary-green)' }}>
                   <h4 style={{ margin: '0 0 10px 0', color: 'var(--color-dark-green)' }}>Important Notes:</h4>

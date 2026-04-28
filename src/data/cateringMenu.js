@@ -8,8 +8,8 @@ export const measureBasket = {
   ],
   mealsAndTiffin: [
     { name: "Meals (Sadam, Sambar, Vatha Kulambu, Rasam, Payasam, Poriyal, Kootu, Appalam, Urugai)", measure: "1 Padi", price: "₹200" },
-    { name: "Saiva Tiffin (7 varieties with Coffee)", measure: "Per Pax", price: "On Request" },
-    { name: "Asaiva Tiffin (7 varieties with Coffee)", measure: "Per Pax", price: "On Request" }
+    { name: "Veg Tiffin (7 varieties with Coffee)", measure: "Per Pax", price: "On Request" },
+    { name: "Non-Veg Tiffin (7 varieties with Coffee)", measure: "Per Pax", price: "On Request" }
   ],
   varietyRice: [
     { name: "Curd Rice", measure: "1 Padi", price: "₹1000" },
@@ -88,8 +88,8 @@ export const aLaCarte = {
     { name: "Prawn Fry / Crab", price: "250" },
     { name: "Neimeen", price: "250" },
     { name: "Ayiraimeen", price: "300" },
-    { name: "Jilefish", price: "140" },
-    { name: "Double Fish", price: "190" }
+    { name: "Nethili Fish", price: "140" },
+    { name: "Vavval Fish", price: "190" }
   ],
   eggAndVeg: [
     { name: "Half Boil / Full Boil", price: "15" },

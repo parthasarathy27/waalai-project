@@ -235,35 +235,78 @@ p {
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  /* navbar is fixed at top:12px, ~76px tall = 88px total. Add 10px gap = 98px */
+  height: 100dvh;
+  min-height: 600px;
+  max-height: 1000px;
   background-color: var(--color-dark-green);
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-top: 150px; /* nav(100px) + 50px gap */
-  padding-bottom: 50px;
+  padding-top: 98px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
+/* Large desktop (1200px+) */
+@media (min-width: 1200px) {
   .hero-section {
-    min-height: auto;
-    height: auto;
-    padding-top: 85px;
-    padding-bottom: 40px;
+    padding-top: 105px;
+  }
+}
+
+/* Tablet portrait (768px–1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-section {
+    padding-top: 98px;
   }
   .hero-grid {
-    grid-template-columns: 1fr;
     gap: 30px;
   }
   .hero-image-box {
+    max-width: 360px !important;
+    height: 360px !important;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    min-height: 100dvh;
+    max-height: none;
+    /* mobile navbar: top:12px + logo 45px + 16px padding = ~73px. Add 8px gap */
+    padding-top: 82px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 16px;
+  }
+  .hero-image-box {
     max-width: 100% !important;
-    height: 350px !important;
+    height: 260px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 78px;
+    padding-bottom: 30px;
+  }
+  .hero-image-box {
+    height: 210px !important;
   }
 }
