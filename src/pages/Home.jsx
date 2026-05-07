@@ -8,6 +8,7 @@ import bannerimg1 from '../assets/banners/bannerimg1.png';
 import bannerimg2 from '../assets/banners/bannerimg2.png';
 import bannerimg3 from '../assets/banners/bannerimg3.png';
 import aaharLogo from '../assets/ahawaalai.png';
+import magilVirundhuBg from '../assets/images/magil-virundhu-bg.png';
 import { 
   Leaf, 
   Sparkles, 
@@ -265,7 +266,7 @@ const Home = () => {
         overflow: 'hidden',
       }}>
         {/* background pattern */}
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=1&w=1920&auto=format&fit=crop')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.08 }} />
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${magilVirundhuBg})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
         {/* floating emojis */}
         <div style={{ position: 'absolute', top: '20px', left: '3%', opacity: 0.12 }}><Leaf size={60} color="white" /></div>
         <div style={{ position: 'absolute', bottom: '20px', right: '4%', opacity: 0.12 }}><UtensilsCrossed size={60} color="white" /></div>
