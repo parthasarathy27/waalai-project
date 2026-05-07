@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Strict Organic Banana Leaf Palette */
+  --color-primary-green: #57b605; /* Requested brand neon/vibrant green */
+  --color-secondary-green: #459204; /* Scaled deep green */
+  --color-dark-green: #295702; /* Scaled dark shadow green */
+  
+  /* Organic/Earthy Colors */
+  --color-earth-brown: #4e342e; /* Rich soil brown */
+  --color-warm-sand: #fffbf0; /* Soft, warm off-white */
+  --color-banana-leaf: #57b605;
+  --color-gold-accent: #f57f17; /* Turmeric/Gold */
+  
+  /* Neutral Colors */
+  --color-bg-light: #fdfaf6; /* Warm sand background */
+  --color-bg-card: rgba(255, 255, 255, 0.8);
+  --color-text-dark: #1e293b;
+  --color-text-light: #64748b;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-white: #ffffff;
+  --color-accent-red: #d32f2f;
+  
+  /* Layout */
+  --max-width: 1200px;
+  --border-radius: 24px;
+  --border-radius-sm: 12px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+p {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--border-radius);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-green), #5c9135);
+  color: var(--color-white);
+  box-shadow: 0 4px 15px rgba(116, 173, 73, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(116, 173, 73, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--color-primary-blue), #1263a1);
+  color: var(--color-white);
+  box-shadow: 0 4px 15px rgba(25, 128, 204, 0.3);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(25, 128, 204, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary-green);
+  border: 2px solid var(--color-primary-green);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary-green);
+  color: var(--color-white);
+}
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary-blue);
+  box-shadow: 0 0 0 3px rgba(25, 128, 204, 0.1);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.badge-veg {
+  color: var(--color-primary-green);
+  border: 1.5px solid var(--color-primary-green);
+}
+
+.badge-non-veg {
+  color: var(--color-accent-red);
+  border: 1.5px solid var(--color-accent-red);
+}
+
+.food-icon-box {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.food-icon-dot {
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+
+/* Fixes for Vite default App.css if applied */
+#root {
+  width: 100%;
+}
+
+/* Responsive Utilities */
+.page-padding {
+  padding-top: 150px;
+  padding-bottom: 80px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .page-padding {
+    padding-top: 100px !important;
+    padding-bottom: 40px !important;
+  }
+  .section-padding {
+    padding: 60px 0 !important;
+  }
+  .hero-slide-title {
+    font-size: 2rem !important;
+  }
+  .quote-banner-container {
+    margin-top: 30px !important;
+    padding: 30px 15px !important;
+  }
+  
+  /* Additional tight mobile utilities */
+  .mobile-tight-gap {
+    gap: 16px !important;
+  }
+  .mobile-no-padding {
+    padding: 0 !important;
+  }
+  .mobile-small-padding {
+    padding: 20px 15px !important;
+  }
+}
+
+.page-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section {
+  position: relative;
+  /* navbar is fixed at top:12px, ~76px tall = 88px total. Add 10px gap = 98px */
+  height: 100dvh;
+  min-height: 600px;
+  max-height: 1000px;
+  background-color: var(--color-dark-green);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 130px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Large desktop (1200px+) */
+@media (min-width: 1200px) {
+  .hero-section {
+    padding-top: 140px;
+  }
+}
+
+/* Tablet portrait (768px–1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-section {
+    padding-top: 130px;
+  }
+  .hero-grid {
+    gap: 30px;
+  }
+  .hero-image-box {
+    max-width: 360px !important;
+    height: 360px !important;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    min-height: 100dvh;
+    max-height: none;
+    /* mobile navbar: top:12px + logo 45px + 16px padding = ~73px. Add 8px gap */
+    padding-top: 115px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 16px;
+  }
+  .hero-image-box {
+    max-width: 100% !important;
+    height: 260px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 105px;
+    padding-bottom: 30px;
+  }
+  .hero-image-box {
+    height: 210px !important;
+  }
+}
