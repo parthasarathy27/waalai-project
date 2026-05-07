@@ -45,6 +45,7 @@ import traditionalPathiyaImg from '../assets/images/pathiyasapadu/Traditional Pa
 import pathiyaTiffinImg from '../assets/images/pathiyasapadu/chapathi,idiyappam.jpeg';
 import pathiyaRiceVegImg from '../assets/images/pathiyasapadu/Rice,Veg,Rasam,Variety Rice.png';
 import pathiyaParottaImg from '../assets/images/pathiyasapadu/Parotta.jpg';
+import softIdlyImg from '../assets/productlist/soft-idly.png';
 
 
 export const categories = ["All", "1KG Non-Veg", "1KG Veg", "1KG Biryani", "Pathiya Sapadu", "Medical Advice Menu"];
@@ -547,7 +548,7 @@ export const products = [
     price: 40,
     category: "Medical Advice Menu",
     isVeg: true,
-    image: pathiyaTiffinImg,
+    image: softIdlyImg,
     isWeightBased: false,
     rating: 4.9,
     reviews: 450
