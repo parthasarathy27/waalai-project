@@ -245,14 +245,14 @@ p {
 .hero-section {
   position: relative;
   /* navbar is fixed at top:12px, ~76px tall = 88px total. Add 10px gap = 98px */
-  height: 100dvh;
-  min-height: 600px;
-  max-height: 1000px;
+  height: 90vh; /* Reduced from 100dvh */
+  min-height: 650px;
+  max-height: 900px; /* Reduced from 1000px */
   background-color: var(--color-dark-green);
   overflow: hidden;
   display: flex;
-  align-items: flex-start; /* Changed from center to prevent overlap on small heights */
-  padding-top: 160px; /* Increased from 130px */
+  align-items: center; /* Reverted to center for better balance */
+  padding-top: 130px; /* Adjusted to a safe middle ground */
   padding-bottom: 40px;
   box-sizing: border-box;
 }
@@ -268,14 +268,16 @@ p {
 /* Large desktop (1200px+) */
 @media (min-width: 1200px) {
   .hero-section {
-    padding-top: 170px; /* Increased from 140px */
+    padding-top: 140px; 
+
   }
 }
 
 /* Tablet portrait (768px–1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero-section {
-    padding-top: 150px; /* Increased from 130px */
+    padding-top: 130px;
+
   }
   .hero-grid {
     gap: 30px;
