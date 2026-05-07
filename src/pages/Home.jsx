@@ -51,7 +51,7 @@ const slides = [
     subtitle: "TRADITIONAL DINING",
     titlePrimary: "Authentic",
     titleHighlight: "Banana Leaf Service",
-    description: "Rooted in tradition, we take pride in serving wholesome, healthy meals on fresh banana leaves.",
+    description: "Authentic traditional food served on fresh banana leaves. Pure home-cooked organic meals prepared without any artificial flavors.",
     actionText: "Order Veg Meals",
     actionLink: "/order?type=veg"
   },
@@ -61,7 +61,7 @@ const slides = [
     subtitle: "EXQUISITE CATERING",
     titlePrimary: "Perfected with",
     titleHighlight: "Flawless Service",
-    description: "Elevate your celebrations with our premium catering. We bring the authentic taste of tradition to your most grand events.",
+    description: "Elevate your celebrations with our premium catering. We bring the authentic taste of tradition to your most grand and special events.",
     actionText: "Inquire Catering",
     actionLink: "/catering"
   }
@@ -160,7 +160,19 @@ const Home = () => {
                 {slides[currentSlide].titlePrimary} <br/> 
                 <span style={{ color: 'var(--color-banana-leaf)' }}>{slides[currentSlide].titleHighlight}</span>
               </h1>
-              <p className="slide-fade-in" style={{ fontSize: '1.3rem', color: 'var(--color-warm-sand)', marginBottom: '40px', lineHeight: 1.6, opacity: 0.9 }}>
+              <p className="slide-fade-in" style={{ 
+                fontSize: 'clamp(1rem, 1.2vw, 1.15rem)', 
+                color: 'var(--color-warm-sand)', 
+                marginBottom: '40px', 
+                lineHeight: 1.6, 
+                opacity: 0.95,
+                maxWidth: '600px',
+                minHeight: '3.2em', /* Ensures 2-line consistency */
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden'
+              }}>
                 {slides[currentSlide].description}
               </p>
               <div className="slide-fade-in" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '30px', alignItems: 'center' }}>
