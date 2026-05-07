@@ -33,7 +33,7 @@ const Navbar = ({ cartItemCount, onOpenCart }) => {
       }}>
         {/* Real Logo integration */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img src={logoUrl} alt="Waalai Mess & Caterers" className="logo-img" style={{ height: '80px', objectFit: 'contain', transition: 'height 0.3s ease' }} />
+          <img src={logoUrl} alt="Waalai Mess & Caterers" className="logo-img" style={{ height: '70px', objectFit: 'contain', transition: 'height 0.3s ease' }} />
         </Link>
 
         {/* Desktop Links */}

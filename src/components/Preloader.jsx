@@ -11,7 +11,7 @@ const Preloader = () => {
       const timer = setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('waalai_loaded', 'true');
-      }, 1200);
+      }, 800); // Reduced from 1200ms to 800ms
       return () => clearTimeout(timer);
     }
   }, []);
