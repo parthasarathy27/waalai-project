@@ -156,7 +156,16 @@ const Home = () => {
               }}>
                 {slides[currentSlide].subtitle}
               </span>
-              <h1 className="slide-fade-in" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', color: 'white', marginBottom: '24px', lineHeight: 1.1 }}>
+              <h1 className="slide-fade-in" style={{ 
+                fontSize: 'clamp(3rem, 6vw, 5rem)', 
+                color: 'white', 
+                marginBottom: '24px', 
+                lineHeight: 1.1,
+                minHeight: '2.4em', // Force uniform height for titles
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end'
+              }}>
                 {slides[currentSlide].titlePrimary} <br/> 
                 <span style={{ color: 'var(--color-banana-leaf)' }}>{slides[currentSlide].titleHighlight}</span>
               </h1>
@@ -195,7 +204,7 @@ const Home = () => {
             </div>
 
             {/* Right Column (Featured Image) */}
-            <div className="hero-image-box slide-img-in" style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '500px', height: '500px' }}>
+            <div className="hero-image-box slide-img-in" style={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '500px', height: '420px' }}>
               {/* Decorative Floating Frame */}
               <div style={{
                 position: 'absolute', top: '20px', right: '-20px', bottom: '-20px', left: '20px',
@@ -206,13 +215,14 @@ const Home = () => {
                 alt="Waalai Special Dish" 
                 style={{ 
                   width: '100%', 
-                  height: '100%',
-                  borderRadius: '32px', 
+                  height: '420px', // Standardized height
+                  borderRadius: '24px', 
                   position: 'relative', 
                   zIndex: 1, 
                   objectFit: 'cover', 
                   boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
-                  border: '4px solid white'
+                  border: '4px solid white',
+                  transition: 'all 0.5s ease'
                 }} 
               />
             </div>
