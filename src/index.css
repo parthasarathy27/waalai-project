@@ -251,8 +251,8 @@ p {
   background-color: var(--color-dark-green);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  padding-top: 130px;
+  align-items: flex-start; /* Changed from center to prevent overlap on small heights */
+  padding-top: 160px; /* Increased from 130px */
   padding-bottom: 40px;
   box-sizing: border-box;
 }
@@ -268,14 +268,14 @@ p {
 /* Large desktop (1200px+) */
 @media (min-width: 1200px) {
   .hero-section {
-    padding-top: 140px;
+    padding-top: 170px; /* Increased from 140px */
   }
 }
 
 /* Tablet portrait (768px–1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero-section {
-    padding-top: 130px;
+    padding-top: 150px; /* Increased from 130px */
   }
   .hero-grid {
     gap: 30px;
@@ -293,7 +293,7 @@ p {
     min-height: 100dvh;
     max-height: none;
     /* mobile navbar: top:12px + logo 45px + 16px padding = ~73px. Add 8px gap */
-    padding-top: 115px;
+    padding-top: 130px; /* Increased from 115px */
     padding-bottom: 40px;
     align-items: flex-start;
   }
@@ -312,7 +312,7 @@ p {
 /* Small phones (≤480px) */
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 105px;
+    padding-top: 120px; /* Increased from 105px */
     padding-bottom: 30px;
   }
   .hero-image-box {
