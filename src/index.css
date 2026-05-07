@@ -2,25 +2,32 @@
 
 :root {
   /* Strict Organic Banana Leaf Palette */
-  --color-primary-green: #57b605; /* Requested brand neon/vibrant green */
-  --color-secondary-green: #459204; /* Scaled deep green */
-  --color-dark-green: #295702; /* Scaled dark shadow green */
-  
+  --color-primary-green: #57b605;
+  /* Requested brand neon/vibrant green */
+  --color-secondary-green: #459204;
+  /* Scaled deep green */
+  --color-dark-green: #295702;
+  /* Scaled dark shadow green */
+
   /* Organic/Earthy Colors */
-  --color-earth-brown: #4e342e; /* Rich soil brown */
-  --color-warm-sand: #fffbf0; /* Soft, warm off-white */
+  --color-earth-brown: #4e342e;
+  /* Rich soil brown */
+  --color-warm-sand: #fffbf0;
+  /* Soft, warm off-white */
   --color-banana-leaf: #57b605;
-  --color-gold-accent: #f57f17; /* Turmeric/Gold */
-  
+  --color-gold-accent: #f57f17;
+  /* Turmeric/Gold */
+
   /* Neutral Colors */
-  --color-bg-light: #fdfaf6; /* Warm sand background */
+  --color-bg-light: #fdfaf6;
+  /* Warm sand background */
   --color-bg-card: rgba(255, 255, 255, 0.8);
   --color-text-dark: #1e293b;
   --color-text-light: #64748b;
   --color-border: rgba(0, 0, 0, 0.1);
   --color-white: #ffffff;
   --color-accent-red: #d32f2f;
-  
+
   /* Layout */
   --max-width: 1200px;
   --border-radius: 24px;
@@ -45,7 +52,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-text-dark);
   font-weight: 700;
   line-height: 1.2;
@@ -160,7 +172,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .badge-veg {
@@ -210,24 +222,29 @@ p {
     padding-top: 100px !important;
     padding-bottom: 40px !important;
   }
+
   .section-padding {
     padding: 60px 0 !important;
   }
+
   .hero-slide-title {
     font-size: 2rem !important;
   }
+
   .quote-banner-container {
     margin-top: 30px !important;
     padding: 30px 15px !important;
   }
-  
+
   /* Additional tight mobile utilities */
   .mobile-tight-gap {
     gap: 16px !important;
   }
+
   .mobile-no-padding {
     padding: 0 !important;
   }
+
   .mobile-small-padding {
     padding: 20px 15px !important;
   }
@@ -238,21 +255,30 @@ p {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-section {
   position: relative;
   /* navbar is fixed at top:12px, ~76px tall = 88px total. Add 10px gap = 98px */
-  height: 90vh; /* Reduced from 100dvh */
-  min-height: 650px;
-  max-height: 900px; /* Reduced from 1000px */
+  height: 100dvh;
+  min-height: 600px;
+  max-height: 1000px;
   background-color: var(--color-dark-green);
   overflow: hidden;
   display: flex;
-  align-items: center; /* Reverted to center for better balance */
-  padding-top: 130px; /* Adjusted to a safe middle ground */
+  align-items: flex-start;
+  /* Changed from center to prevent overlap on small heights */
+  padding-top: 160px;
+  /* Increased from 130px */
   padding-bottom: 40px;
   box-sizing: border-box;
 }
@@ -268,20 +294,22 @@ p {
 /* Large desktop (1200px+) */
 @media (min-width: 1200px) {
   .hero-section {
-    padding-top: 140px; 
-
+    padding-top: 170px;
+    /* Increased from 140px */
   }
 }
 
 /* Tablet portrait (768px–1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero-section {
-    padding-top: 130px;
-
+    padding-top: 150px;
+    /* Increased from 130px */
   }
+
   .hero-grid {
     gap: 30px;
   }
+
   .hero-image-box {
     max-width: 360px !important;
     height: 360px !important;
@@ -295,15 +323,18 @@ p {
     min-height: 100dvh;
     max-height: none;
     /* mobile navbar: top:12px + logo 45px + 16px padding = ~73px. Add 8px gap */
-    padding-top: 130px; /* Increased from 115px */
+    padding-top: 130px;
+    /* Increased from 115px */
     padding-bottom: 40px;
     align-items: flex-start;
   }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
     padding-top: 16px;
   }
+
   .hero-image-box {
     max-width: 100% !important;
     height: 260px !important;
@@ -314,9 +345,11 @@ p {
 /* Small phones (≤480px) */
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 120px; /* Increased from 105px */
+    padding-top: 120px;
+    /* Increased from 105px */
     padding-bottom: 30px;
   }
+
   .hero-image-box {
     height: 210px !important;
   }
