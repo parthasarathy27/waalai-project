@@ -10,8 +10,8 @@ const Breadcrumbs = ({ pageName }) => {
   return (
     <div style={{
       width: '100%',
-      backgroundColor: '#f8fdf8',
-      borderBottom: '1px solid rgba(46, 125, 50, 0.12)',
+      backgroundColor: '#ffffff',
+      borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
       padding: '18px 0',
       marginBottom: '0',
     }}>
@@ -44,7 +44,7 @@ const Breadcrumbs = ({ pageName }) => {
           fontWeight: 500,
         }}>
           <Link to="/" style={{ 
-            color: 'var(--color-secondary-green)', 
+            color: 'var(--color-earth-brown)', 
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
